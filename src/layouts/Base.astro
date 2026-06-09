@@ -1,0 +1,75 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  activeNav?: string;
+}
+
+const { title, description = "Consulenza e Formazione per l'Intelligenza Artificiale", activeNav } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Chi sono', href: '/chi-sono/' },
+  { label: 'Servizi', href: '/servizi/' },
+  { label: 'Collaborazioni', href: '/collaborazioni/' },
+  { label: 'Articoli', href: '/articoli/' },
+  { label: 'Risorse', href: '/risorse/' },
+  { label: 'Contatti', href: '/contatti/' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} — Martino Pirella</title>
+  <meta name="description" content={description}>
+  <meta name="author" content="Martino Pirella">
+  <link rel="canonical" href={new URL(currentPath, Astro.site).href}>
+
+  <meta property="og:title" content={`${title} — Martino Pirella`}>
+  <meta property="og:description" content={description}>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-brand">Martino Pirella</a>
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        {navItems.map(item => (
+          <li>
+            <a href={item.href} class={currentPath.startsWith(item.href) ? 'active' : ''}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; {new Date().getFullYear()} Martino Pirella</p>
+      <ul class="footer-links">
+        <li><a href="https://www.linkedin.com/in/martinopirella" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:mpirella@gmail.com">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

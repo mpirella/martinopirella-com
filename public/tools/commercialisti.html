@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'AI nello studio professionale – Proposta interlocutoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --nero:#141414;
+  --grigio:#6a6a6a;
+  --grigio-chiaro:#f0ede8;
+  --bianco:#ffffff;
+  --rosso:#c0392b;
+  --ocra:#b8943f;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#1a1a1a;color:var(--nero)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(20,20,20,.96);backdrop-filter:blur(8px);padding:14px 48px;display:flex;justify-content:space-between;align-items:center}
+.nav-brand{font-family:'League Spartan',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#fff}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--rosso)}
+
+/* SLIDE BASE */
+.slide{min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden}
+
+/* ================================
+   SLIDE 1 — APERTURA
+   ================================ */
+.s1{background:var(--nero)}
+.s1-photo{position:absolute;inset:0}
+.s1-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.35) saturate(.7)}
+.s1-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,20,20,.85) 40%,rgba(20,20,20,.3))}
+.s1-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;min-height:100vh;padding:120px 10vw 80px}
+.s1-kicker{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rosso);margin-bottom:20px}
+.s1-h1{font-family:'League Spartan',sans-serif;font-size:clamp(36px,5.5vw,72px);font-weight:800;text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:24px;max-width:780px}
+.s1-h1 .accent{color:var(--rosso)}
+.s1-sub{font-size:clamp(14px,1.4vw,18px);font-weight:300;line-height:1.65;color:rgba(255,255,255,.65);max-width:560px;margin-bottom:48px}
+.s1-claim{border-left:3px solid var(--rosso);padding-left:20px;font-family:'League Spartan',sans-serif;font-size:clamp(13px,1.2vw,16px);text-transform:uppercase;color:rgba(255,255,255,.5);line-height:1.4;max-width:420px}
+.s1-scroll{position:absolute;bottom:36px;left:10vw;display:flex;align-items:center;gap:10px;font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.s1-scroll::before{content:'';display:block;width:40px;height:1px;background:rgba(255,255,255,.2)}
+
+/* ================================
+   SLIDE 2 — DOMANDE GIUSTE
+   ================================ */
+.s2{background:var(--grigio-chiaro)}
+.s2-inner{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.s2-left{padding:100px 6vw 80px;display:flex;flex-direction:column;justify-content:center}
+.s2-right{position:relative;overflow:hidden}
+.s2-right img{width:100%;height:100%;object-fit:cover;filter:brightness(.75) saturate(.85)}
+.s2-right-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--grigio-chiaro) 0%,transparent 25%)}
+.s2-kicker{font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rosso);margin-bottom:14px}
+.s2-title{font-family:'League Spartan',sans-serif;font-size:clamp(28px,3.5vw,48px);font-weight:800;text-transform:uppercase;line-height:.93;color:var(--nero);margin-bottom:24px}
+.s2-lead{font-size:19px;line-height:1.75;color:#444;margin-bottom:36px;max-width:480px}
+.domande{display:flex;flex-direction:column;gap:0}
+.domanda{padding:16px 0;border-bottom:1px solid rgba(20,20,20,.1);display:flex;gap:16px;align-items:flex-start}
+.domanda:first-child{border-top:1px solid rgba(20,20,20,.1)}
+.domanda-n{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;color:var(--rosso);letter-spacing:1px;min-width:28px;padding-top:2px}
+.domanda-testo{font-size:18px;line-height:1.6;color:var(--nero);font-weight:500}
+.domanda-sub{font-size:15px;line-height:1.55;color:var(--grigio);margin-top:3px}
+
+/* ================================
+   SLIDE 3 — DOVE SIAMO ORA
+   ================================ */
+.s3{background:var(--nero);color:#fff}
+.s3-photo{position:absolute;inset:0}
+.s3-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.25) saturate(.5)}
+.s3-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,20,20,.6),rgba(20,20,20,.92))}
+.s3-content{position:relative;z-index:2;padding:120px 10vw 80px;display:flex;flex-direction:column;justify-content:center;min-height:100vh}
+.s3-kicker{font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rosso);margin-bottom:14px}
+.s3-title{font-family:'League Spartan',sans-serif;font-size:clamp(28px,4vw,54px);font-weight:800;text-transform:uppercase;line-height:.93;color:#fff;margin-bottom:16px}
+.s3-sub{font-size:19px;line-height:1.7;color:rgba(255,255,255,.6);max-width:600px;margin-bottom:52px}
+.s3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:1000px}
+.s3-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:28px 24px}
+.s3-card-icon{font-family:'League Spartan',sans-serif;font-size:32px;font-weight:800;color:var(--rosso);opacity:.7;margin-bottom:14px;line-height:1}
+.s3-card-title{font-family:'League Spartan',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;color:#fff;margin-bottom:10px;line-height:1.1}
+.s3-card-text{font-size:16px;line-height:1.65;color:rgba(255,255,255,.55)}
+.s3-nota{margin-top:40px;border-left:2px solid var(--rosso);padding-left:20px;font-size:17px;line-height:1.65;color:rgba(255,255,255,.5);max-width:640px;font-style:italic}
+
+/* ================================
+   SLIDE 4 — CONTESTO NORMATIVO
+   ================================ */
+.s4{background:var(--bianco)}
+.s4-inner{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.s4-left{position:relative;overflow:hidden}
+.s4-left img{width:100%;height:100%;object-fit:cover;filter:brightness(.65) saturate(.75)}
+.s4-left-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(20,20,20,.7))}
+.s4-left-caption{position:absolute;bottom:36px;left:36px;right:36px}
+.s4-left-caption p{font-family:'League Spartan',sans-serif;font-size:20px;text-transform:uppercase;color:#fff;line-height:1.1;font-weight:700}
+.s4-right{padding:100px 6vw 80px;display:flex;flex-direction:column;justify-content:center}
+.s4-kicker{font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rosso);margin-bottom:14px}
+.s4-title{font-family:'League Spartan',sans-serif;font-size:clamp(24px,3vw,40px);font-weight:800;text-transform:uppercase;line-height:.93;color:var(--nero);margin-bottom:20px}
+.s4-lead{font-size:18px;line-height:1.75;color:#444;margin-bottom:32px}
+.norm-list{display:flex;flex-direction:column;gap:0}
+.norm{display:flex;flex-direction:column;padding:28px 0 28px 24px;border-left:3px solid #ddd;border-bottom:1px solid rgba(0,0,0,.08)}
+.norm:last-child{border-bottom:none}
+.norm:nth-child(1){border-left-color:var(--rosso)}
+.norm:nth-child(2){border-left-color:var(--ocra)}
+.norm:nth-child(3){border-left-color:#888}
+.norm-label{font-family:'League Spartan',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.norm:nth-child(1) .norm-label{color:var(--rosso)}
+.norm:nth-child(2) .norm-label{color:var(--ocra)}
+.norm:nth-child(3) .norm-label{color:#888}
+.norm-body{}
+.norm-title{font-family:'League Spartan',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:var(--nero);margin-bottom:12px;line-height:1.05}
+.norm-text{font-size:16px;line-height:1.7;color:#555}
+.s4-box{margin-top:28px;background:var(--grigio-chiaro);padding:20px 22px;font-size:16px;line-height:1.7;color:#444;font-style:italic}
+
+/* ================================
+   SLIDE 5 — COME LAVORIAMO
+   ================================ */
+.s5{background:var(--grigio-chiaro)}
+.s5-content{padding:100px 10vw 80px;display:flex;flex-direction:column;min-height:100vh;justify-content:center}
+.s5-top{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:52px}
+.s5-kicker{font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rosso);margin-bottom:14px}
+.s5-title{font-family:'League Spartan',sans-serif;font-size:clamp(26px,3.5vw,46px);font-weight:800;text-transform:uppercase;line-height:.93;color:var(--nero);margin-bottom:0}
+.s5-lead{font-size:19px;line-height:1.75;color:#444;padding-top:8px}
+.s5-fasi{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.fase{background:#fff;padding:28px 24px}
+.fase-n{font-family:'League Spartan',sans-serif;font-size:42px;font-weight:800;color:var(--nero);opacity:.08;line-height:1;margin-bottom:12px}
+.fase-kicker{font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--rosso);margin-bottom:6px}
+.fase-title{font-family:'League Spartan',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;line-height:1;color:var(--nero);margin-bottom:10px}
+.fase-text{font-size:16px;line-height:1.65;color:#555}
+.fase-detail{margin-top:12px;padding-top:12px;border-top:1px solid var(--grigio-chiaro);font-size:14px;line-height:1.6;color:var(--grigio)}
+.s5-bottom{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:3px}
+.s5-photo{height:200px;overflow:hidden}
+.s5-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.85)}
+.s5-quote{background:var(--nero);padding:32px 36px;display:flex;align-items:center}
+.s5-quote p{font-family:'League Spartan',sans-serif;font-size:clamp(16px,2vw,22px);text-transform:uppercase;color:#fff;line-height:1.1}
+.s5-quote .acc{color:var(--rosso)}
+
+/* ================================
+   SLIDE 6 — CHIUSURA
+   ================================ */
+.s6{background:var(--nero)}
+.s6-photo{position:absolute;inset:0}
+.s6-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.28) saturate(.5)}
+.s6-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,20,20,.96) 30%,rgba(20,20,20,.4))}
+.s6-content{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;min-height:100vh;padding:80px 10vw}
+.s6-top{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:end;margin-bottom:52px}
+.s6-kicker{font-family:'League Spartan',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rosso);margin-bottom:14px}
+.s6-title{font-family:'League Spartan',sans-serif;font-size:clamp(30px,4.5vw,60px);font-weight:800;text-transform:uppercase;line-height:.92;color:#fff;margin-bottom:18px}
+.s6-sub{font-size:19px;line-height:1.75;color:rgba(255,255,255,.55);max-width:480px}
+.s6-cta{display:flex;flex-direction:column;gap:12px}
+.cta-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:20px 24px}
+.cta-label{font-size:8.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--rosso);margin-bottom:6px}
+.cta-text{font-family:'League Spartan',sans-serif;font-size:18px;text-transform:uppercase;color:#fff;line-height:1.1}
+.cta-sub{font-size:14px;color:rgba(255,255,255,.4);margin-top:4px}
+.s6-hr{height:1px;background:rgba(255,255,255,.08);margin-bottom:28px}
+.s6-footer{display:flex;justify-content:space-between;align-items:flex-end}
+.s6-contact{}
+.s6-contact .name{font-family:'League Spartan',sans-serif;font-size:22px;text-transform:uppercase;color:#fff;margin-bottom:4px}
+.s6-contact .info{font-size:15px;color:rgba(255,255,255,.4);line-height:1.7}
+.s6-brand{text-align:right;font-family:'League Spartan',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.2);line-height:1.8}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">AI per studi professionali</div>
+  <div class="nav-links">
+    <a href="#s1">Intro</a>
+    <a href="#s2">Domande</a>
+    <a href="#s3">Contesto</a>
+    <a href="#s4">Normativa</a>
+    <a href="#s5">Metodo</a>
+    <a href="#s6">Prossimi passi</a>
+  </div>
+</nav>
+
+<!-- SLIDE 1 -->
+<section class="slide s1" id="s1">
+  <div class="s1-photo"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1800&q=85" alt="Studio professionale"></div>
+  <div class="s1-overlay"></div>
+  <div class="s1-content">
+    <div class="s1-kicker">Proposta interlocutoria · 2026</div>
+    <h1 class="s1-h1">L'AI è già<br>nel vostro<br><span class="accent">studio.</span></h1>
+    <p class="s1-sub">Non come strumento scelto consapevolmente, ma come presenza diffusa nei flussi di lavoro quotidiani. La domanda non è se usarla — è se farlo in modo governato, sicuro e utile davvero.</p>
+    <div class="s1-claim">Una conversazione per capire dove siete e dove volete arrivare.</div>
+  </div>
+  <div class="s1-scroll">Scorri</div>
+</section>
+
+<!-- SLIDE 2 -->
+<section class="slide s2" id="s2">
+  <div class="s2-inner">
+    <div class="s2-left">
+      <div class="s2-kicker">Il punto di partenza</div>
+      <h2 class="s2-title">Le domande<br>che contano</h2>
+      <p class="s2-lead">Prima di parlare di strumenti, vale la pena fermarsi su alcune domande che ogni studio professionale dovrebbe potersi rispondere con chiarezza.</p>
+      <div class="domande">
+        <div class="domanda">
+          <div class="domanda-n">01</div>
+          <div>
+            <div class="domanda-testo">Chi nel vostro studio usa già l'AI, e come?</div>
+            <div class="domanda-sub">Spesso l'uso è già in corso, ma non è visibile alla direzione.</div>
+          </div>
+        </div>
+        <div class="domanda">
+          <div class="domanda-n">02</div>
+          <div>
+            <div class="domanda-testo">Quali processi vi costano più tempo ogni settimana?</div>
+            <div class="domanda-sub">Redazione, ricerca normativa, comunicazione clienti, analisi documenti.</div>
+          </div>
+        </div>
+        <div class="domanda">
+          <div class="domanda-n">03</div>
+          <div>
+            <div class="domanda-testo">Sapete cosa vi impone l'AI Act come studio?</div>
+            <div class="domanda-sub">Le responsabilità cambiano a seconda di come usate i sistemi AI.</div>
+          </div>
+        </div>
+        <div class="domanda">
+          <div class="domanda-n">04</div>
+          <div>
+            <div class="domanda-testo">I vostri clienti vi chiedono già consulenza sull'AI?</div>
+            <div class="domanda-sub">Una competenza che può diventare un servizio a valore aggiunto.</div>
+          </div>
+        </div>
+        <div class="domanda">
+          <div class="domanda-n">05</div>
+          <div>
+            <div class="domanda-testo">Se un collaboratore usa ChatGPT per un parere fiscale, chi è responsabile?</div>
+            <div class="domanda-sub">La firma è del professionista. La responsabilità anche.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="s2-right">
+      <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1000&q=80" alt="Commercialista al lavoro">
+      <div class="s2-right-overlay"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3 -->
+<section class="slide s3" id="s3">
+  <div class="s3-photo"><img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1800&q=80" alt="Lavoro digitale"></div>
+  <div class="s3-overlay"></div>
+  <div class="s3-content">
+    <div class="s3-kicker">Dove siamo ora</div>
+    <h2 class="s3-title">Un'adozione<br>già in corso,<br>spesso invisibile</h2>
+    <p class="s3-sub">Negli studi professionali l'AI entra prima dai collaboratori che dalla direzione. Questo crea un gap tra chi decide e chi opera — un rischio prima ancora che un'opportunità.</p>
+    <div class="s3-grid">
+      <div class="s3-card">
+        <div class="s3-card-icon">↗</div>
+        <div class="s3-card-title">Uso spontaneo diffuso</div>
+        <div class="s3-card-text">Bozze di lettere, risposte a clienti, ricerche normative, sintesi di documenti — già oggi, con o senza policy.</div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-icon">⚠</div>
+        <div class="s3-card-title">Rischi non governati</div>
+        <div class="s3-card-text">Dati sensibili dei clienti incollati in chat pubbliche, output non verificati pubblicati, responsabilità professionale non presidiata.</div>
+      </div>
+      <div class="s3-card">
+        <div class="s3-card-icon">◎</div>
+        <div class="s3-card-title">Opportunità reale</div>
+        <div class="s3-card-text">Automazione di attività ripetitive, qualità delle comunicazioni, velocità di risposta ai clienti, nuovi servizi consulenziali.</div>
+      </div>
+    </div>
+    <div class="s3-nota">"Non si tratta di decidere se usare l'AI. Si tratta di decidere come usarla — prima che lo decidano i vostri collaboratori per conto proprio."</div>
+  </div>
+</section>
+
+<!-- SLIDE 4 -->
+<section class="slide s4" id="s4">
+  <div class="s4-inner">
+    <div class="s4-left">
+      <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1000&q=80" alt="Normativa e documenti">
+      <div class="s4-left-overlay"></div>
+      <div class="s4-left-caption"><p>Il quadro normativo cambia. Adesso.</p></div>
+    </div>
+    <div class="s4-right">
+      <div class="s4-kicker">Contesto normativo</div>
+      <h2 class="s4-title">Cosa vi riguarda<br>già oggi</h2>
+      <p class="s4-lead">Per uno studio professionale che gestisce dati sensibili di persone fisiche e imprese, il quadro normativo sull'AI non è una questione futura — è già applicabile.</p>
+      <div class="norm-list">
+        <div class="norm">
+          <div class="norm-label">AI Act</div>
+          <div class="norm-body">
+            <div class="norm-title">Obblighi per chi usa sistemi AI</div>
+            <div class="norm-text">Se usate strumenti AI su dati dei clienti per supportare decisioni, entrate nel perimetro degli utilizzatori soggetti a obblighi di trasparenza e controllo.</div>
+          </div>
+        </div>
+        <div class="norm">
+          <div class="norm-label">GDPR</div>
+          <div class="norm-body">
+            <div class="norm-title">Dati personali e trattamento automatizzato</div>
+            <div class="norm-text">Inviare dati di clienti a sistemi AI esterni può configurare un trasferimento non autorizzato. Serve una valutazione del rischio.</div>
+          </div>
+        </div>
+        <div class="norm">
+          <div class="norm-label">Deontologia</div>
+          <div class="norm-body">
+            <div class="norm-title">Responsabilità professionale invariata</div>
+            <div class="norm-text">Il parere firmato da un commercialista resta suo, indipendentemente da come è stato prodotto. L'AI non è un'esimente.</div>
+          </div>
+        </div>
+      </div>
+      <div class="s4-box">La buona notizia: non serve stravolgere nulla. Bastano alcune scelte consapevoli e una policy minima per essere in regola e usare l'AI con tranquillità.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5 -->
+<section class="slide s5" id="s5">
+  <div class="s5-content">
+    <div class="s5-top">
+      <div>
+        <div class="s5-kicker">Come lavoriamo</div>
+        <h2 class="s5-title">Un percorso<br>in tre fasi,<br>senza impegni</h2>
+      </div>
+      <p class="s5-lead">Non vendiamo un pacchetto. Partiamo da un'osservazione — leggera, concreta — e costruiamo insieme il percorso che ha senso per il vostro studio. Ogni fase ha valore in sé e può essere l'ultima.</p>
+    </div>
+    <div class="s5-fasi">
+      <div class="fase">
+        <div class="fase-n">01</div>
+        <div class="fase-kicker">Assessment</div>
+        <div class="fase-title">Capire dove siete</div>
+        <div class="fase-text">Una o due sessioni di ascolto con i referenti chiave dello studio. Nessun questionario complicato — una conversazione strutturata per mappare usi, rischi e opportunità reali.</div>
+        <div class="fase-detail">Output: quadro chiaro dell'uso attuale dell'AI, gap normativi e priorità di intervento.</div>
+      </div>
+      <div class="fase">
+        <div class="fase-n">02</div>
+        <div class="fase-kicker">Orientamento</div>
+        <div class="fase-title">Decidere cosa fare</div>
+        <div class="fase-text">Sulla base di ciò che emerge, definiamo insieme se e dove intervenire: formazione, policy, compliance normativa, ottimizzazione dei flussi. Nulla di obbligatorio.</div>
+        <div class="fase-detail">Output: roadmap su misura con priorità e tempi realistici per lo studio.</div>
+      </div>
+      <div class="fase">
+        <div class="fase-n">03</div>
+        <div class="fase-kicker">Attivazione</div>
+        <div class="fase-title">Muoversi con metodo</div>
+        <div class="fase-text">Se ha senso procedere, attiviamo gli interventi scelti — workshop, materiali, policy, advisory — con la logica di chi lavora dentro la realtà professionale, non fuori.</div>
+        <div class="fase-detail">Output: strumenti operativi, competenze interne, documentazione riutilizzabile.</div>
+      </div>
+    </div>
+    <div class="s5-bottom">
+      <div class="s5-photo"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&q=80" alt="Riunione di lavoro"></div>
+      <div class="s5-quote"><p>Non per fare <span class="acc">di più.</span><br>Per fare <span class="acc">meglio.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6 -->
+<section class="slide s6" id="s6">
+  <div class="s6-photo"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1800&q=80" alt="Incontro professionale"></div>
+  <div class="s6-overlay"></div>
+  <div class="s6-content">
+    <div class="s6-top">
+      <div>
+        <div class="s6-kicker">Prossimo passo</div>
+        <h2 class="s6-title">Una conversazione.<br>Nient'altro.</h2>
+        <p class="s6-sub">Non chiediamo impegni. Proponiamo un incontro di 45 minuti per capire se e come possiamo essere utili al vostro studio — senza vendere nulla che non serva davvero.</p>
+      </div>
+      <div class="s6-cta">
+        <div class="cta-box">
+          <div class="cta-label">Primo passo</div>
+          <div class="cta-text">Incontro esplorativo</div>
+          <div class="cta-sub">45 minuti · in presenza o da remoto · senza impegno</div>
+        </div>
+        <div class="cta-box">
+          <div class="cta-label">Cosa portiamo</div>
+          <div class="cta-text">Domande, non soluzioni</div>
+          <div class="cta-sub">Prima ascoltiamo, poi — se serve — proponiamo.</div>
+        </div>
+      </div>
+    </div>
+    <div class="s6-hr"></div>
+    <div class="s6-footer">
+      <div class="s6-contact">
+        <div class="name">Martino Pirella</div>
+        <div class="info">mpirella@gmail.com<br>348 271 4096<br>Consulenza &amp; Formazione</div>
+      </div>
+      <div class="s6-brand">AI per studi professionali<br>Proposta interlocutoria · 2026</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

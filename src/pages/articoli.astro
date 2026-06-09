@@ -1,0 +1,38 @@
+---
+import Base from '../layouts/Base.astro';
+
+const articles = await Astro.glob('../content/articoli/*.md');
+const sorted = articles.sort((a, b) => 
+  new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+);
+---
+
+<Base title="Articoli" description="Riflessioni su AI governance, intelligenza artificiale relazionale, etica e organizzazioni.">
+  <section class="hero hero-image" style="background-image: url('/images/b1b87fa8-d4c1-4e4b-bddc-d5fe5c9e1dcb.png');">
+    <div class="hero-content">
+      <p class="eyebrow">Blog</p>
+      <h1>Articoli</h1>
+      <p style="font-size: 1.15rem; color: rgba(245,240,232,0.65); max-width: 600px;">Riflessioni su AI governance, intelligenza artificiale relazionale, etica e organizzazioni.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap" style="max-width: 900px;">
+      {sorted.map(article => (
+        <div class="article-item">
+          <span class="article-date">
+            {new Date(article.frontmatter.date).toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </span>
+          <div>
+            <h3 class="article-title">
+              <a href={`/articoli/${article.frontmatter.slug}/`}>{article.frontmatter.title}</a>
+            </h3>
+            {article.frontmatter.excerpt && (
+              <p class="article-excerpt">{article.frontmatter.excerpt}</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+
+const risorse = [
+  {
+    title: "Amplification Risk Matrix",
+    image: "/images/unnamed-29.jpg",
+    url: "https://amplification.martinopirella.com/",
+    desc: "C'è un'illusione pericolosa nelle aziende: pensare che l'Intelligenza Artificiale possa \"aggiustare\" un processo che non funziona. Non è vero. La realtà è brutale: l'IA amplifica lo stato attuale. Ho sviluppato la Amplification Risk Matrix per poterlo verificare."
+  }
+];
+---
+
+<Base title="Risorse" description="Strumenti e risorse per l'AI governance.">
+  <section class="hero hero-image" style="background-image: url('/images/4bbbab46-ab80-4fe3-97b3-eb9c9154a724.png');">
+    <div class="hero-content">
+      <p class="eyebrow">Strumenti</p>
+      <h1>Risorse</h1>
+      <p style="font-size: 1.15rem; color: rgba(245,240,232,0.65); max-width: 600px;">Strumenti, framework e risorse operative per l'AI governance.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {risorse.map(r => (
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-xl); align-items: center; margin-bottom: var(--space-xl);">
+          <a href={r.url} target="_blank" rel="noopener noreferrer">
+            <img src={r.image} alt={r.title} style="border-radius: var(--radius-lg); box-shadow: var(--shadow-md);" />
+          </a>
+          <div>
+            <h2><a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a></h2>
+            <p style="color: var(--slate); margin-top: var(--space-sm);">{r.desc}</p>
+            <a href={r.url} target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="margin-top: var(--space-md);">Apri lo strumento →</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  @media (max-width: 768px) {
+    div[style*="grid-template-columns: 1fr 2fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

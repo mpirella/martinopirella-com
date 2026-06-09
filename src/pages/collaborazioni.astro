@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+
+const collabs = [
+  {
+    logo: "/images/screenshot-2026-02-22-alle-14.19.37.png",
+    url: "https://www.skillupsrl.it/it/home-it/",
+    role: "Senior AI Consultant",
+    desc: "Guido progetti di integrazione dell'AI in aziende e reti d'impresa, dalla strategia all'adozione operativa. Riferimento aziendale per i progetti formativi in ambito AI (Aziende, Erasmus+)."
+  },
+  {
+    logo: "/images/confermato-logo-.png",
+    url: "https://www.enia.ai",
+    role: "Membro del Comitato Tecnico‑Scientifico",
+    desc: "Dipartimento Accessible AI di ENIA®. Contribuisco alla definizione di linee guida, scenari d'uso e modelli di governance per un'AI civica, etica, inclusiva e orientata all'impatto sociale."
+  },
+  {
+    logo: "/images/channels4_profile-1.jpg",
+    url: "https://www.prospettivedidattiche.it",
+    role: "Consulente",
+    desc: "Progetti di governance e formazione in ambito scolastico a livello nazionale. Riferimento metodologico per la progettazione della consulenza e della formazione in ambito scolastico."
+  },
+  {
+    logo: "/images/opendei_logo.jpeg",
+    url: "https://www.linkedin.com/showcase/opendei/",
+    role: "Collaboratore ed autore",
+    desc: "OpenDEI EditorIA Sociale. Scrivo e pubblico articoli e saggi riguardanti l'inclusione e la disabilità, soprattutto in relazione agli strumenti di Intelligenza Artificiale."
+  },
+  {
+    logo: "/images/unknown-4.jpeg",
+    url: "https://www.stultiferanavis.it",
+    role: "Autore",
+    desc: "Rivista online. Pubblicazione di articoli e brevi saggi su Intelligenza Artificiale, epistemologia, politica, letteratura."
+  },
+  {
+    logo: "/images/romanwalks_logo_500.jpg",
+    url: "https://romanwalks.org/en/readings-and-blog/interview/",
+    role: "Consulente",
+    desc: "Consulente della rivista per le tematiche dell'Intelligenza Artificiale."
+  }
+];
+---
+
+<Base title="Collaborazioni" description="Collaborazioni professionali e ruoli istituzionali di Martino Pirella.">
+  <section class="hero hero-image" style="background-image: url('/images/gemini_generated_image_nnehaynnehaynneh.png');">
+    <div class="hero-content">
+      <p class="eyebrow">Rete professionale</p>
+      <h1>Collaborazioni</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {collabs.map(c => (
+        <div class="collab-row">
+          <a href={c.url} target="_blank" rel="noopener noreferrer">
+            <img src={c.logo} alt="" class="collab-logo" style="width: 100%; max-width: 120px;" />
+          </a>
+          <div>
+            <h3 style="margin-bottom: 0.3rem;">
+              <a href={c.url} target="_blank" rel="noopener noreferrer" style="color: var(--ink);">{c.role}</a>
+            </h3>
+            <p style="color: var(--slate);">{c.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Base>

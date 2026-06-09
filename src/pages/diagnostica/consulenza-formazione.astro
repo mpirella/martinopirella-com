@@ -1,0 +1,33 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Diagnostica AI — Consulenza e Formazione" description="Strumenti diagnostici AI per società di consulenza e formazione.">
+  <div class="tool-embed">
+    <iframe src="/tools/consulenza-formazione.html" title="Diagnostica AI Consulenza e Formazione"></iframe>
+  </div>
+</Base>
+
+<style>
+  .tool-embed {
+    margin-top: 72px;
+  }
+  .tool-embed iframe {
+    width: 100%;
+    min-height: calc(100vh - 72px);
+    border: none;
+    display: block;
+  }
+</style>
+
+<script>
+  const iframe = document.querySelector('.tool-embed iframe');
+  if (iframe) {
+    iframe.addEventListener('load', () => {
+      try {
+        const h = iframe.contentDocument?.documentElement?.scrollHeight;
+        if (h) iframe.style.height = h + 'px';
+      } catch(e) {}
+    });
+  }
+</script>

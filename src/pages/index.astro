@@ -1,0 +1,309 @@
+---
+import Base from '../layouts/Base.astro';
+
+const articles = await Astro.glob('../content/articoli/*.md');
+const sorted = articles
+  .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime())
+  .slice(0, 5);
+---
+
+<Base title="Home" activeNav="home">
+
+  <!-- ════════ HERO ════════ -->
+  <section class="hero">
+    <div class="hero-bg-text">GOVERNANCE</div>
+    <div class="hero-content">
+      <div class="hero-grid-layout">
+        <div class="hero-left">
+          <img src="/images/screenshot-2026-02-20-alle-13.01.44.png" alt="Martino Pirella" class="hero-photo" />
+        </div>
+        <div class="hero-right">
+          <p class="eyebrow">Consulenza · Formazione · Ricerca</p>
+          <h1>Gestire l'AI<br>in azienda, senza<br><em>improvvisare.</em></h1>
+          <div class="hero-divider"></div>
+          <p class="hero-sub">Un approccio relazionale, concreto, orientato alla governance. Non vendo strumenti: aiuto le organizzazioni a capire dove l'AI è già entrata e come governarla.</p>
+          <div class="hero-actions">
+            <a href="/servizi/" class="btn btn-primary">Scopri i servizi</a>
+            <a href="mailto:mpirella@gmail.com?subject=Richiesta%20consulenza%20AI%20Governance" class="btn btn-light">Scrivimi</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-tags">
+        <span>AIRA</span>
+        <span>DVRA</span>
+        <span>AI Act</span>
+        <span>ISO 42001</span>
+        <span>GDPR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ PROFILO AI ════════ -->
+  <section class="section profilo-ai-banner">
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-xl); flex-wrap: wrap;">
+      <div>
+        <p class="eyebrow">Test rapido</p>
+        <h2 style="font-size: clamp(1.4rem, 3vw, 2rem); margin-bottom: 0.3rem;">Scopri il tuo profilo AI in 3 minuti</h2>
+        <p style="color: var(--muted); font-size: 0.95rem;">16 domande, nessuna risposta giusta. Solo il tuo modo di stare dentro il cambiamento.</p>
+      </div>
+      <a href="/profilo-ai/" class="btn btn-primary">Fai il test</a>
+    </div>
+  </section>
+
+  <!-- ════════ PROBLEMI ════════ -->
+  <section class="section section-warm">
+    <div class="wrap">
+      <p class="eyebrow">Il contesto</p>
+      <h2>L'AI è già in azienda.<br>Spesso senza che nessuno lo sappia.</h2>
+      <div class="section-divider"></div>
+      <p style="color: var(--slate); max-width: 640px; margin-bottom: var(--space-xl); font-size: 1.05rem;">Il rischio non è essere indietro sulla tecnologia. È non sapere dove l'AI è già entrata nei flussi di lavoro, quali decisioni influenza e chi ne risponde.</p>
+      <div class="grid-3">
+        <div class="card card-accent">
+          <h3>Uso non governato</h3>
+          <p>Strumenti AI usati senza policy, validazione o consapevolezza dei rischi.</p>
+        </div>
+        <div class="card card-accent">
+          <h3>Gap management-operativi</h3>
+          <p>Chi decide non vede ciò che accade sul campo; chi lavora non sa quali regole seguire.</p>
+        </div>
+        <div class="card card-accent">
+          <h3>Obblighi normativi</h3>
+          <p>AI Act, L.132/2025, GDPR e ISO 42001 richiedono mappatura e responsabilità.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ METODO ════════ -->
+  <section class="section section-dark">
+    <div class="wrap" style="text-align: center; max-width: 800px;">
+      <p class="eyebrow">Il metodo</p>
+      <h2 style="font-size: clamp(2rem, 4vw, 3rem);">AIRA: approccio<br>relazionale all'AI</h2>
+      <div class="section-divider" style="margin: var(--space-lg) auto;"></div>
+      <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: var(--space-xl);">Non un pacchetto standard, ma una mappa per decidere dove usare l'AI, dove limitarla e come governarla.</p>
+      <div class="grid-3">
+        <div class="dark-card">
+          <h3>Gradualità</h3>
+          <p>Si parte piccolo e si procede per passi.</p>
+        </div>
+        <div class="dark-card">
+          <h3>Concretezza</h3>
+          <p>Ogni intervento parte da processi reali.</p>
+        </div>
+        <div class="dark-card">
+          <h3>Co-costruzione</h3>
+          <p>Il percorso si definisce insieme.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ DIAGNOSTICA ════════ -->
+  <section class="section section-warm" style="padding: var(--space-3xl) 0;">
+    <div class="wrap" style="text-align: center;">
+      <p class="eyebrow">Diagnostica</p>
+      <h2 style="font-size: clamp(2.2rem, 5vw, 3.5rem);">Scopri come sei messo</h2>
+      <div class="section-divider" style="margin: var(--space-lg) auto;"></div>
+      <p style="font-size: 1.05rem; margin-bottom: var(--space-xl); max-width: 640px; margin-left: auto; margin-right: auto;">L'AI è già nei tuoi processi? Quanto sei esposto? Scegli il tuo settore e scoprilo.</p>
+      <div class="diagnostica-grid">
+        <a href="/diagnostica/studio-commercialista/" class="diagnostica-card card-green">
+          <h3>Studio commercialista</h3>
+          <p>Obblighi, rischi e opportunità per lo studio professionale.</p>
+        </a>
+        <a href="/diagnostica/studio-legale/" class="diagnostica-card card-brick">
+          <h3>Studio legale</h3>
+          <p>Check-list diagnostica AI per lo studio legale.</p>
+        </a>
+        <a href="/diagnostica/consulenza-formazione/" class="diagnostica-card card-blue">
+          <h3>Consulenza e formazione</h3>
+          <p>Strumenti diagnostici per società di consulenza e formazione.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ ARTICOLI ════════ -->
+  <section class="section section-dark">
+    <div class="wrap">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-xl);">
+        <div>
+          <p class="eyebrow">Dal blog</p>
+          <h2>Articoli recenti</h2>
+        </div>
+        <a href="/articoli/" class="btn btn-outline">Tutti gli articoli</a>
+      </div>
+      {sorted.map(article => (
+        <div class="article-item">
+          <span class="article-date">{new Date(article.frontmatter.date).toLocaleDateString('it-IT', { year: 'numeric', month: 'short', day: 'numeric' })}</span>
+          <div>
+            <h3 class="article-title">
+              <a href={`/articoli/${article.frontmatter.slug}/`}>{article.frontmatter.title}</a>
+            </h3>
+            <p class="article-excerpt">{article.frontmatter.excerpt}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--font-display);
+    font-size: clamp(8rem, 18vw, 22rem);
+    color: rgba(255,255,255,0.02);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .hero-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: stretch;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero h1 em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--accent);
+    margin: var(--space-lg) 0;
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.55);
+    max-width: 500px;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+  }
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: clamp(1rem, 3vw, 3rem);
+  }
+
+  .hero-caption {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+  }
+
+  .hero-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    padding-top: var(--space-lg);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(245,240,232,0.1);
+  }
+
+  .diagnostica-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .diagnostica-card {
+    background: var(--paper);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .diagnostica-card.card-green {
+    border-color: rgba(34,139,68,0.5);
+  }
+  .diagnostica-card.card-green:hover {
+    background: rgba(34,139,68,0.08);
+    border-color: rgba(34,139,68,1);
+    transform: translateY(-3px);
+  }
+  .diagnostica-card.card-brick {
+    border-color: rgba(168,50,24,0.5);
+  }
+  .diagnostica-card.card-brick:hover {
+    background: rgba(168,50,24,0.08);
+    border-color: rgba(168,50,24,1);
+    transform: translateY(-3px);
+  }
+  .diagnostica-card.card-blue {
+    border-color: rgba(46,122,154,0.5);
+  }
+  .diagnostica-card.card-blue:hover {
+    background: rgba(46,122,154,0.08);
+    border-color: rgba(46,122,154,1);
+    transform: translateY(-3px);
+  }
+  .diagnostica-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .diagnostica-card p {
+    font-size: 0.9rem;
+    color: var(--slate);
+  }
+
+  .profilo-ai-banner {
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid-layout {
+      grid-template-columns: 1fr;
+    }
+    .hero-left {
+      display: none;
+    }
+    .diagnostica-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../../content/articoli/*.md');
+  return posts.map(post => ({
+    params: { slug: post.frontmatter.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { title, date, excerpt, image } = post.frontmatter;
+const Content = post.Content;
+---
+
+<Base title={title} description={excerpt}>
+  <section class={`article-hero ${image ? 'article-hero-image' : ''}`} style={image ? `background-image: linear-gradient(to right, rgba(30,30,28,1) 0%, rgba(30,30,28,0.85) 40%, rgba(30,30,28,0.4) 70%, transparent 100%), url('${image}'); background-size: cover; background-position: center;` : ''}>
+    <div class="wrap">
+      <div class="prose">
+        <a href="/articoli/" class="article-back">← Tutti gli articoli</a>
+        <p class="article-date" style="margin-bottom: var(--space-xs);">
+          {new Date(date).toLocaleDateString('it-IT', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        <h1>{title}</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: var(--space-lg);">
+    <div class="wrap">
+      <article class="prose">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="prose" style="border-top: 1px solid var(--line); padding-top: var(--space-lg);">
+        <a href="/articoli/" class="btn btn-outline">← Tutti gli articoli</a>
+      </div>
+    </div>
+  </section>
+</Base>

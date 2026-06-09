@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il tuo profilo AI</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f4f0e8;
+      color: #1a1814;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1.65;
+      min-height: 100vh;
+      padding: 3rem 2rem 6rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .header {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #c8c3bb;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9b2335;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .intro {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #2a2520;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 2px;
+      background: #9b2335;
+      margin-bottom: 2.5rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #9b2335;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    .progress-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: #555050;
+      margin-bottom: 2rem;
+    }
+
+    .question-area {
+      min-height: 220px;
+    }
+
+    .question-num {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      color: #9b2335;
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+
+    .question-text {
+      font-size: 1.45rem;
+      font-weight: 300;
+      line-height: 1.55;
+      color: #1a1814;
+      margin-bottom: 2.2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .yn-btn {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 0.75rem 2.2rem;
+      border: 1px solid #c8c3bb;
+      background: transparent;
+      color: #2a2520;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .yn-btn:hover { border-color: #1a1814; color: #1a1814; }
+    .yn-btn.yes:hover { background: #9b2335; border-color: #9b2335; color: #f4f0e8; }
+    .yn-btn.no:hover  { background: #ece8df; border-color: #555050; color: #2a2520; }
+
+    #result {
+      display: none;
+    }
+
+    .result-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #9b2335;
+      margin-bottom: 1rem;
+    }
+
+    .result-name {
+      font-size: 3rem;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-vars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #c8c3bb;
+    }
+
+    .result-var {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid #c8c3bb;
+      color: #2a2520;
+    }
+
+    .result-section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9b2335;
+      margin-bottom: 1rem;
+    }
+
+    .result-text {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #1a1410;
+      margin-bottom: 3rem;
+    }
+
+    .result-agenda {
+      font-size: 1.15rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #1a1410;
+      margin-bottom: 3rem;
+      padding: 1.8rem;
+      border: 1px solid #c8c3bb;
+      background: #ece8df;
+    }
+
+    .reset-btn {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid #c8c3bb;
+      color: #2a2520;
+      padding: 0.75rem 1.6rem;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    .reset-btn:hover { border-color: #2a2520; color: #1a1814; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <p class="eyebrow">Intelligenza artificiale · Organizzazioni · Lavoro</p>
+    <h1 class="title">Il tuo profilo AI</h1>
+    <p class="intro">Sedici affermazioni. Rispondi sì o no a ciascuna, senza pensarci troppo. Alla fine emerge il tuo profilo tra i sedici descritti nella matrice organizzativa.</p>
+  </div>
+
+  <div id="test-area">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <p class="progress-label" id="progress-label">1 di 16</p>
+    <div class="question-area">
+      <p class="question-num" id="q-num"></p>
+      <p class="question-text" id="q-text"></p>
+      <div class="btn-group">
+        <button class="yn-btn yes" onclick="answer(true)">Sì</button>
+        <button class="yn-btn no" onclick="answer(false)">No</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="result">
+    <p class="result-eyebrow">Il tuo profilo</p>
+    <h2 class="result-name" id="result-name"></h2>
+    <div class="result-vars" id="result-vars"></div>
+    <p class="result-section-label">Ritratto</p>
+    <p class="result-text" id="result-text"></p>
+    <p class="result-section-label">Agenda</p>
+    <div class="result-agenda" id="result-agenda"></div>
+    <button class="reset-btn" onclick="reset()">Riparti dall'inizio</button>
+  </div>
+
+</div>
+<script>
+var statements = [
+  { id:1,  v:"att", p:"delega",         t:"Quando finisco di usare l'AI, ho quasi sempre qualcosa di concreto da consegnare o usare subito." },
+  { id:2,  v:"att", p:"amplifica",      t:"L'AI ha cambiato il modo in cui affronto i problemi difficili sul lavoro." },
+  { id:3,  v:"att", p:"delega",         t:"Uso l'AI come si usa un motore di ricerca molto potente." },
+  { id:4,  v:"att", p:"amplifica",      t:"Mi è capitato di cambiare posizione su un problema lavorativo dopo averci ragionato con l'AI." },
+  { id:5,  v:"par", p:"contratto",      t:"Quando un programma che uso spesso cambia interfaccia, devo ricominciare da capo e mi pesa." },
+  { id:6,  v:"par", p:"esplorativo",    t:"Con le app e i programmi nuovi mi è sempre piaciuto esplorare da solo più che leggere istruzioni." },
+  { id:7,  v:"par", p:"contratto",      t:"Prima di usare un'applicazione nuova, cerco una guida o un tutorial." },
+  { id:8,  v:"par", p:"esplorativo",    t:"Quando un programma non si comporta come mi aspetto, faccio tentativi da solo prima di chiedere aiuto." },
+  { id:9,  v:"ruo", p:"decisore",       t:"Le persone con cui lavoro vengono da me quando devono prendere una decisione importante." },
+  { id:10, v:"ruo", p:"implementatore", t:"Nella mia giornata lavorativa, eseguire è più centrale che orientare." },
+  { id:11, v:"ruo", p:"decisore",       t:"Le mie scelte sul lavoro influenzano anche il modo in cui lavorano le persone intorno a me." },
+  { id:12, v:"ruo", p:"implementatore", t:"Sono bravo a fare cose. Decidere se farle spetta ad altri." },
+  { id:13, v:"tec", p:"alta",           t:"I colleghi mi chiedono aiuto quando hanno problemi con computer o smartphone." },
+  { id:14, v:"tec", p:"bassa",          t:"Quando compro un dispositivo nuovo, mi ci vuole un po' prima di sentirmi a mio agio." },
+  { id:15, v:"tec", p:"alta",           t:"Quando il computer o uno smartphone ha un problema, cerco di capirlo da solo prima di chiamare assistenza." },
+  { id:16, v:"tec", p:"bassa",          t:"Il ritmo con cui cambiano le tecnologie digitali mi mette a disagio." }
+];
+
+var profiles = {
+  "delega-contratto-decisore-alta":        { nome:"Il conservatore lucido",      vars:["Delega","Contratto","Decisore","Alta tecnofamiliarità"],        ritratto:"Conosce gli strumenti. Sa cosa fa l'AI, sa come orientarsi, sa riconoscere quando funziona e quando no. Quando parla di intelligenza artificiale in riunione, usa i termini giusti. Ma il suo modo di lavorare non è cambiato. Continua a decidere come ha sempre deciso, a fidarsi di quello che si è sempre fidato. L'AI è entrata nella sua organizzazione, ma non nel suo processo di pensiero. La competenza c'è, la trasformazione no. È il più difficile da formare perché non sente il bisogno di cambiare.", agenda:"La sfida non è tecnica, è motivazionale. Sa già usare gli strumenti: quello che manca è l'esperienza diretta di un momento in cui l'AI ha davvero cambiato una decisione, non accelerato una produzione. L'agenda utile non passa dai corsi ma dall'esposizione a situazioni reali dove il pensiero amplificato produce esiti diversi. Un confronto con chi ha già fatto questo percorso, internamente o fuori, vale più di qualsiasi formazione strutturata." },
+  "delega-contratto-decisore-bassa":        { nome:"Il grande assente",            vars:["Delega","Contratto","Decisore","Bassa tecnofamiliarità"],        ritratto:"Approva, firma, indirizza. È al vertice o vicino. Quando si parla di AI nelle sue riunioni, annuisce. Ha sentito le parole abbastanza volte da usarle. Ma non ha mai aperto davvero lo strumento, non sa come funziona dall'interno, non ha idea di dove finiscono i dati. Si aspettava, come sempre, che qualcuno gli spiegasse. Nessuno lo ha fatto in modo adeguato. Governa l'adozione di una tecnologia che non capisce, e lo sa. Non lo dice.", agenda:"Ha bisogno di esperienza diretta, senza intermediari. Non presentazioni, non demo, non report sui casi d'uso altrui. Sessioni brevi e focalizzate con qualcuno di cui si fida, su problemi suoi, reali. L'obiettivo non è diventare esperto: è acquisire la comprensione minima necessaria per governare davvero l'adozione, invece di delegarla senza controllo." },
+  "delega-contratto-implementatore-alta":   { nome:"Il professionista della replica", vars:["Delega","Contratto","Implementatore","Alta tecnofamiliarità"], ritratto:"Sa usare gli strumenti. Ha imparato presto, impara ancora. Ma usa ogni strumento nuovo per fare meglio quello che ha sempre fatto. L'AI è entrata nel suo flusso di lavoro come prima lo era il foglio di calcolo: un modo per produrre più velocemente, con meno attrito. Non si chiede se potrebbe usarla diversamente. Non è pigrizia: è che il suo paradigma è stabile, e produce buoni risultati. È affidabile. È fermo.", agenda:"Il percorso utile è l'esposizione a usi diversi da quelli che già pratica. Non corsi tecnici: scambi con colleghi che usano l'AI per ragionare, non per produrre. Piccoli esperimenti a basso rischio in cui l'obiettivo non è consegnare prima ma capire meglio. Il cambiamento, se arriva, viene dall'interno." },
+  "delega-contratto-implementatore-bassa":  { nome:"L'invisibile",                 vars:["Delega","Contratto","Implementatore","Bassa tecnofamiliarità"],  ritratto:"Non appare nelle statistiche sull'adozione dell'AI. Non fa parte dei gruppi pilota, non viene invitato ai workshop. Ha una relazione faticosa con la tecnologia in generale, e con questa in modo particolare. Le istruzioni non esistono, o esistono in formati che presuppongono una familiarità che non ha. Continua a lavorare come ha sempre lavorato, sempre più ai margini di processi che si spostano senza di lui. Nessuno lo chiama indietro.", agenda:"La formazione standard non funziona qui. Il punto di partenza è la persona, non la tecnologia: cosa sa già, cosa fa bene, dove potrebbe trovare valore in uno strumento nuovo. I successi devono essere piccoli e concreti, subito visibili. La fiducia si costruisce così, non con ore di aula." },
+  "delega-esplorativo-decisore-alta":       { nome:"Il fluente",                   vars:["Delega","Esplorativo","Decisore","Alta tecnofamiliarità"],        ritratto:"Si muove bene. Sa aprire uno strumento nuovo e trovare subito quello che gli serve. Parla di AI con sicurezza, cita casi d'uso, conosce i modelli. In riunione convince. Ma sotto la disinvoltura c'è qualcosa che non regge: usa l'AI per accelerare la produzione, non per pensare meglio. Delega il ragionamento allo strumento e chiama il risultato competenza. È il profilo più difficile da riconoscere dall'esterno, perché la performance è convincente. Le decisioni che prende sembrano informate. Spesso non lo sono.", agenda:"È il profilo più difficile da attivare perché non percepisce il problema. L'agenda utile crea situazioni in cui la distanza tra velocità e qualità diventa visibile: revisione dei risultati nel tempo, confronto tra decisioni prese con e senza approfondimento reale. Chiedergli di spiegare il suo processo di ragionamento, non solo di mostrare i risultati, è già un intervento." },
+  "delega-esplorativo-decisore-bassa":      { nome:"Il candidato",                 vars:["Delega","Esplorativo","Decisore","Bassa tecnofamiliarità"],       ritratto:"Ha la disposizione mentale giusta. Non si aspetta istruzioni, accetta l'incertezza, è disposto a esplorare. Ma lo strumento ancora non gli risponde come vorrebbe. Delega perché non sa ancora come fare altrimenti. Ha già attraversato il confine cognitivo più difficile, quello del paradigma. Il resto è tempo e pratica. Con il supporto giusto diventa uno dei profili più efficaci in circolazione.", agenda:"Ha già la cosa più difficile: la disposizione. Quello che serve è supporto tecnico e pratica strutturata. Un accompagnamento che parta dai suoi obiettivi reali, con spazio per sbagliare e ritornare. Il rischio principale è che nel frattempo, per necessità, consolidi abitudini di delega che poi sono difficili da disfare." },
+  "delega-esplorativo-implementatore-alta": { nome:"Il velocista",                 vars:["Delega","Esplorativo","Implementatore","Alta tecnofamiliarità"],  ritratto:"Produce. Tanto, veloce, bene. Sa usare l'AI con naturalezza, senza attrito, trovando scorciatoie che altri non vedono. Ma l'AI per lui è un turbo, non uno specchio. Non si ferma a chiedersi cosa sta pensando mentre produce. La riflessione rallenta, e lui non vuole rallentare. Ha tutto per diventare altro. Non lo sa ancora.", agenda:"La leva è culturale. Esposizione a situazioni in cui la profondità ha prodotto esiti che la velocità non avrebbe raggiunto. Pratiche riflessive semplici: cosa ho capito oggi che non sapevo ieri, cosa avrei fatto diversamente. Non serve convincerlo che rallentare è meglio: serve mostrargli cosa si guadagna quando si pensa mentre si produce." },
+  "delega-esplorativo-implementatore-bassa":{ nome:"Il curioso senza bussola",     vars:["Delega","Esplorativo","Implementatore","Bassa tecnofamiliarità"],  ritratto:"Apre gli strumenti, li esplora, ci torna. Ha quella disposizione naturale verso il nuovo che molti più anziani di lui si sono persi per strada. Ma la padronanza non c'è ancora. I risultati sono irregolari, il metodo è grezzo. Delega più per inesperienza che per scelta: non sa ancora come entrare in dialogo con lo strumento. Quello che ha è difficile da insegnare. Quello che gli manca si impara.", agenda:"Più che formazione, ha bisogno di un modello da seguire. Qualcuno che lavori con lui, che mostri come si sta dentro un ragionamento complesso con lo strumento. I checkpoint aiutano: non per valutare, ma per rendere visibile il percorso che sta facendo." },
+  "amplifica-contratto-decisore-alta":      { nome:"Il convertito",                vars:["Amplifica","Contratto","Decisore","Alta tecnofamiliarità"],        ritratto:"Ha dovuto fare uno sforzo reale per arrivare dove è arrivato. Il suo paradigma di partenza era quello del contratto: cercava istruzioni, confini, certezze. Non le ha trovate, e invece di fermarsi ha cambiato il modo di cercare. Ora usa l'AI per pensare. La interroga, ci ragiona sopra, la usa per vedere angolature che da solo non avrebbe considerato. Poi decide, portando dentro la decisione decenni di esperienza amplificata. È raro. Quando esiste, cambia il tono di un'intera organizzazione.", agenda:"L'agenda qui non è di sviluppo ma di valorizzazione. Va reso visibile nell'organizzazione. La sua storia di cambiamento è la risorsa più preziosa che ha: raccontarla, usarla come riferimento per gli altri, strutturarla in modo che diventi trasferibile. Sprecare questa figura in compiti esecutivi è uno dei principali errori organizzativi sull'AI." },
+  "amplifica-contratto-decisore-bassa":     { nome:"Il paziente",                  vars:["Amplifica","Contratto","Decisore","Bassa tecnofamiliarità"],       ritratto:"Vuole usare l'AI per pensare meglio. L'ha capito, ci crede, lo dice. Ma la tecnologia lo rallenta: ogni volta che apre lo strumento c'è qualcosa che non funziona come si aspetta, qualcosa che è cambiato dall'ultima volta. La volontà è intatta. L'accesso è il problema. Non ha bisogno di essere convinto: ha bisogno che qualcuno rimuova gli ostacoli tecnici che si mettono tra lui e quello che vuole fare.", agenda:"Non ha bisogno di essere convinto né formato: ha già l'intenzione giusta. Ha bisogno che qualcuno rimuova gli ostacoli tecnici. Supporto dedicato, interfacce stabili, qualcuno a cui chiedere senza sentirsi giudicato. L'investimento è piccolo e il ritorno potenzialmente alto." },
+  "amplifica-contratto-implementatore-alta":{ nome:"L'oro sepolto",                vars:["Amplifica","Contratto","Implementatore","Alta tecnofamiliarità"],  ritratto:"Usa l'AI per approfondire. Per leggere meglio i problemi, per trovare connessioni che sfuggono, per produrre pensiero oltre che output. Sa farlo, lo fa, ma non ha il ruolo per portarlo dove servirebbe. Le sue analisi restano nel suo cassetto, o arrivano a qualcuno che non sa cosa farne. È probabilmente la risorsa più sottoutilizzata nelle organizzazioni che adottano l'AI. Non viene visto perché nessuno sta guardando nella direzione giusta.", agenda:"L'agenda è organizzativa prima che individuale. Creare canali che portino il suo contributo al livello decisionale. Riconoscere formalmente il valore di quello che produce. Valutare se il suo ruolo può evolvere. Lasciarlo dov'è senza cambiare nulla è una scelta che costa all'organizzazione più di quanto si veda." },
+  "amplifica-contratto-implementatore-bassa":{ nome:"Il talento incompiuto",       vars:["Amplifica","Contratto","Implementatore","Bassa tecnofamiliarità"],  ritratto:"Sa cosa vuole fare con l'AI, con una chiarezza che molti colleghi più competenti tecnicamente non hanno. Vuole pensare meglio, capire di più, usare lo strumento come un interlocutore. Ma la tecnologia lo frena. La bassa familiarità digitale è l'unico ostacolo reale. È il profilo su cui un intervento mirato produce risultati sproporzionati rispetto all'investimento.", agenda:"Formazione tecnica mirata, breve, intensa, costruita sui suoi obiettivi specifici. Non corsi generici: percorsi che partano da quello che vuole fare e rimuovano l'ostacolo preciso che gli impedisce di farlo. Il ritorno sull'investimento qui è tra i più alti dell'intera matrice." },
+  "amplifica-esplorativo-decisore-alta":    { nome:"L'esemplare",                  vars:["Amplifica","Esplorativo","Decisore","Alta tecnofamiliarità"],       ritratto:"Pensa bene, usa bene, decide. Non è un tipo ideale costruito a tavolino: esiste, si incontra, a volte si riconosce solo dopo. Ha la disposizione esplorativa, la padronanza degli strumenti, la capacità di usarli per amplificare il proprio pensiero, e il potere di tradurre tutto questo in decisioni che cambiano qualcosa. È raro non perché sia difficile diventarlo, ma perché richiede che quattro condizioni convergano insieme. Quando succede, si vede.", agenda:"L'agenda è di protezione e moltiplicazione. Va protetto dal rischio di essere consumato da richieste operative continue, e va messo nelle condizioni di trasferire le sue pratiche. Documentare come lavora, creare spazio perché altri possano osservarlo e imparare, costruire intorno a lui un riferimento interno sull'uso consapevole dell'AI." },
+  "amplifica-esplorativo-decisore-bassa":   { nome:"Il promettente",               vars:["Amplifica","Esplorativo","Decisore","Bassa tecnofamiliarità"],      ritratto:"Ha la posizione e ha la disposizione. Manca ancora la padronanza dello strumento, che arriverà. Il rischio nel frattempo è uno solo: delegare prima di aver capito, lasciare che la bassa tecnofamiliarità lo spinga a fidarsi di chi sa usare lo strumento meglio di lui senza avere ancora i mezzi per valutare quello che riceve. Sa di questo rischio. È già un passo avanti.", agenda:"Supporto tecnico progressivo e consapevolezza costante del rischio di delega prematura. Check-in regolari non sulla produzione ma sul processo: come stai usando lo strumento, cosa stai capendo, cosa stai ancora affidando ad altri senza verifica. Il percorso è tracciato: serve qualcuno che lo accompagni." },
+  "amplifica-esplorativo-implementatore-alta":{ nome:"L'eminenza grigia",          vars:["Amplifica","Esplorativo","Implementatore","Alta tecnofamiliarità"], ritratto:"Non decide formalmente. Ma è l'interfaccia reale tra l'AI e l'organizzazione. Tutti si rivolgono a lui quando c'è qualcosa da capire, qualcosa da fare, qualcosa che non funziona. Ha costruito questa posizione per merito: pensa bene, usa bene, spiega bene. Il suo potere è reale, non è regolato, non è riconosciuto. Cambia gli equilibri senza che nessuno lo abbia deciso. Nelle organizzazioni che ignorano questa figura, la governance dell'AI è altrove.", agenda:"Va riconosciuto e formalizzato. Il suo ruolo informale ha un costo che nessuno sta misurando: esaurimento, sovraccarico, responsabilità senza tutele. L'organizzazione deve decidere cosa fare di questa figura: darle peso formale, risorse, e confini chiari. Ignorarla è rischioso per lui e per l'organizzazione." },
+  "amplifica-esplorativo-implementatore-bassa":{ nome:"Il principiante autentico", vars:["Amplifica","Esplorativo","Implementatore","Bassa tecnofamiliarità"],ritratto:"Non ha ancora molto. Non ha la padronanza, non ha l'esperienza, non ha trovato il suo metodo. Ma ha la cosa più difficile da costruire: la disposizione giusta. Apre lo strumento con curiosità genuina, accetta di non capire, torna a provare. Non delega il pensiero: lo mette in gioco. La bassa tecnofamiliarità è un ostacolo temporaneo in un percorso che ha già la direzione giusta.", agenda:"Investire presto e con continuità. Mentorship, tempo, fiducia. Non aspettare che maturi da solo: accompagnarlo attivamente nelle prime fasi, quando le abitudini si formano. È il profilo con il più alto potenziale di sviluppo nell'intera matrice. Il ritorno dipende da quanto si investe adesso." }
+};
+
+var current = 0;
+var answers = {};
+var transitioning = false;
+
+function renderQuestion() {
+  var s = statements[current];
+  document.getElementById('q-num').textContent = String(current + 1).padStart(2, '0');
+  document.getElementById('q-text').textContent = s.t;
+  document.getElementById('progress-fill').style.width = ((current / 16) * 100) + '%';
+  document.getElementById('progress-label').textContent = (current + 1) + ' di 16';
+}
+
+function answer(val) {
+  if (transitioning) return;
+  transitioning = true;
+  answers[statements[current].id] = val;
+
+  var area = document.getElementById('test-area');
+  area.style.opacity = '0';
+  area.style.transition = 'opacity 0.2s ease';
+
+  setTimeout(function () {
+    current++;
+    if (current < statements.length) {
+      renderQuestion();
+      area.style.transition = 'opacity 0.2s ease';
+      area.style.opacity = '1';
+      transitioning = false;
+    } else {
+      document.getElementById('progress-fill').style.width = '100%';
+      area.style.display = 'none';
+      showResult();
+      transitioning = false;
+    }
+  }, 220);
+}
+
+function computeProfile() {
+  var sc = { att: { delega: 0, amplifica: 0 }, par: { contratto: 0, esplorativo: 0 }, ruo: { decisore: 0, implementatore: 0 }, tec: { alta: 0, bassa: 0 } };
+  for (var i = 0; i < statements.length; i++) {
+    var s = statements[i];
+    if (answers[s.id]) sc[s.v][s.p]++;
+  }
+  var att = sc.att.amplifica > sc.att.delega ? 'amplifica' : 'delega';
+  var par = sc.par.esplorativo > sc.par.contratto ? 'esplorativo' : 'contratto';
+  var ruo = sc.ruo.decisore > sc.ruo.implementatore ? 'decisore' : 'implementatore';
+  var tec = sc.tec.alta > sc.tec.bassa ? 'alta' : 'bassa';
+  return att + '-' + par + '-' + ruo + '-' + tec;
+}
+
+function showResult() {
+  var key = computeProfile();
+  var p = profiles[key];
+  document.getElementById('result-name').textContent = p.nome;
+  document.getElementById('result-text').textContent = p.ritratto;
+  document.getElementById('result-agenda').textContent = p.agenda;
+  var varsEl = document.getElementById('result-vars');
+  varsEl.innerHTML = '';
+  for (var i = 0; i < p.vars.length; i++) {
+    var span = document.createElement('span');
+    span.className = 'result-var';
+    span.textContent = p.vars[i];
+    varsEl.appendChild(span);
+  }
+  var result = document.getElementById('result');
+  result.style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function reset() {
+  current = 0;
+  answers = {};
+  transitioning = false;
+  document.getElementById('result').style.display = 'none';
+  var area = document.getElementById('test-area');
+  area.style.display = 'block';
+  area.style.opacity = '1';
+  area.style.transition = 'none';
+  renderQuestion();
+  window.scrollTo(0, 0);
+}
+
+renderQuestion();
+</script>
+</body>
+</html>
