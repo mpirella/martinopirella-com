@@ -3,10 +3,13 @@ interface Props {
   title: string;
   description?: string;
   activeNav?: string;
+  image?: string;
 }
 
-const { title, description = "Consulenza e Formazione per l'Intelligenza Artificiale", activeNav } = Astro.props;
+const { title, description = "Consulenza e Formazione per l'Intelligenza Artificiale", activeNav, image } = Astro.props;
 const currentPath = Astro.url.pathname;
+const ogImage = new URL(image || '/images/og-default.jpg', Astro.site).href;
+const pageUrl = new URL(currentPath, Astro.site).href;
 
 const navItems = [
   { label: 'Chi sono', href: '/chi-sono/' },
@@ -31,7 +34,13 @@ const navItems = [
   <meta property="og:title" content={`${title} — Martino Pirella`}>
   <meta property="og:description" content={description}>
   <meta property="og:type" content="website">
+  <meta property="og:url" content={pageUrl}>
+  <meta property="og:image" content={ogImage}>
   <meta property="og:locale" content="it_IT">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={`${title} — Martino Pirella`}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImage}>
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 </head>
