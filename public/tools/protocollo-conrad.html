@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocollo Conrad — Audit della Deriva Cognitiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1e1e1c;
+      --paper: #f5f0e8;
+      --paper-soft: #faf8f5;
+      --warm: #e8e0d0;
+      --accent: #c4360a;
+      --accent-dark: #9a2a08;
+      --accent-soft: rgba(196,54,10,0.08);
+      --slate: #5a5a52;
+      --muted: #7d726c;
+      --line: #ddd4ca;
+      --green: #228b44;
+      --green-soft: rgba(34,139,68,0.08);
+      --green-border: rgba(34,139,68,0.3);
+      --yellow: #b8860b;
+      --yellow-soft: rgba(184,134,11,0.08);
+      --yellow-border: rgba(184,134,11,0.3);
+      --red: #c4360a;
+      --red-soft: rgba(196,54,10,0.08);
+      --red-border: rgba(196,54,10,0.3);
+    }
+
+    /* ── SITE NAV ── */
+    .site-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(30,30,28,0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-bar a {
+      color: #f5f0e8;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-family: 'DM Sans', sans-serif;
+      transition: opacity 0.2s;
+    }
+    .site-bar a:hover { opacity: 0.7; }
+    .site-bar .brand {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.05rem;
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .header-desc {
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.8;
+    }
+
+    /* ── PHASE CARDS ── */
+    .phase-card {
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .phase-card h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .phase-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .instruction-box {
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.2rem;
+      margin: 1.25rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    .instruction-box strong {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .phase-card.phase-warning {
+      border-left: 3px solid var(--yellow);
+    }
+
+    /* ── QUESTIONS ── */
+    .audit-item {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .audit-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .question-label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .question-hint {
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: white;
+    }
+
+    .radio-option:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .radio-option input[type="radio"] {
+      margin-top: 3px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .option-text {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .option-subtext {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+
+    textarea {
+      width: 100%;
+      background: white;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      padding: 0.75rem;
+      border-radius: 6px;
+      margin-top: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      resize: vertical;
+      min-height: 60px;
+      transition: border-color 0.2s;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea::placeholder {
+      color: var(--muted);
+    }
+
+    /* ── BUTTON ── */
+    .btn-submit {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      border-radius: 6px;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+      margin-top: 1rem;
+    }
+
+    .btn-submit:hover {
+      background: #333;
+    }
+
+    /* ── RESULTS ── */
+    #results-container {
+      display: none;
+      margin-top: 2.5rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .result-card {
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-card.zone-green {
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+    }
+    .result-card.zone-green h2, .result-card.zone-green .score-badge { color: var(--green); }
+
+    .result-card.zone-yellow {
+      background: var(--yellow-soft);
+      border: 1px solid var(--yellow-border);
+    }
+    .result-card.zone-yellow h2, .result-card.zone-yellow .score-badge { color: var(--yellow); }
+
+    .result-card.zone-red {
+      background: var(--red-soft);
+      border: 1px solid var(--red-border);
+    }
+    .result-card.zone-red h2, .result-card.zone-red .score-badge { color: var(--red); }
+
+    .score-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      margin-bottom: 0.75rem;
+    }
+
+    .result-card h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .result-card .diagnosis-text {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--slate);
+    }
+
+    /* ── ACTION PLAN ── */
+    .action-plan {
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .action-plan h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .action-plan ul {
+      padding-left: 1.2rem;
+      color: var(--slate);
+      font-size: 0.92rem;
+    }
+
+    .action-plan li {
+      margin-bottom: 0.6rem;
+      line-height: 1.7;
+    }
+
+    .btn-reset {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .btn-reset:hover { border-color: var(--ink); }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; }
+      .site-bar, .btn-submit, .btn-reset { display: none; }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .container { padding: 1.5rem 1rem 4rem; }
+      body { font-size: 16px; }
+      .title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-bar">
+    <a href="/risorse/">← Risorse</a>
+    <a href="/" class="brand">Martino Pirella</a>
+  </div>
+
+  <div class="container">
+    <div class="header">
+      <p class="eyebrow">Strumento diagnostico</p>
+      <h1 class="title">Protocollo Conrad</h1>
+      <p class="subtitle">Audit della "forza muscolare cognitiva" nell'era dell'AI generativa</p>
+      <p class="header-desc">Questo strumento non valuta l'AI, ma la tua relazione con essa. L'audit si divide in tre fasi: Mappatura, Bonaccia e Linea d'Ombra.</p>
+    </div>
+
+    <form id="auditForm">
+
+      <!-- FASE 1 -->
+      <div class="phase-card">
+        <span class="phase-label">Fase 1</span>
+        <h2>Mappatura della delega</h2>
+        <div class="instruction-box">
+          <strong>Obiettivo</strong>
+          Identificare le aree dove la comodità si è trasformata in cecità procedurale prima di iniziare il test pratico.
+        </div>
+
+        <div class="audit-item">
+          <label class="question-label">1. Inventario delle rotte: qual è la percentuale di task "Black Box"?</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="delegation" value="0">
+              <div>
+                <span class="option-text">0–10%: Controllo totale</span>
+                <span class="option-subtext">Uso l'AI solo per brainstorming o revisione. Scrivo il codice/testo finale.</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="delegation" value="5">
+              <div>
+                <span class="option-text">30–50%: Copilota attivo</span>
+                <span class="option-subtext">L'AI scrive le bozze, io faccio editing pesante e verifico tutto.</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="delegation" value="10">
+              <div>
+                <span class="option-text">70%+: Pilota automatico</span>
+                <span class="option-subtext">Copio e incollo l'output direttamente. Spesso non so come ha fatto.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="audit-item">
+          <label class="question-label">2. Indice di fiducia cieca</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="blind_trust" value="0">
+              <span class="option-text">Verifico sempre le fonti e la logica, anche se sembra corretto.</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="blind_trust" value="5">
+              <span class="option-text">Verifico a campione o solo se "suona strano".</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="blind_trust" value="10">
+              <span class="option-text">Mi fido. Se allucina, me ne accorgerò dopo.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- FASE 2 -->
+      <div class="phase-card phase-warning">
+        <span class="phase-label">Fase 2</span>
+        <h2>La bonaccia — Stress test</h2>
+        <div class="instruction-box">
+          <strong>Istruzione operativa</strong>
+          Per rispondere a questa sezione, devi aver eseguito (o simulare onestamente ora) un blocco di 30–60 minuti di lavoro complesso senza accesso ad alcun modello AI.
+        </div>
+
+        <div class="audit-item">
+          <label class="question-label">Test A: Sintesi muscolare</label>
+          <p class="question-hint">Compito: leggi un report tecnico o una lunga catena di email e estrai i 3 punti chiave su carta.</p>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="synthesis" value="0">
+              <div>
+                <span class="option-text">Nessun problema.</span>
+                <span class="option-subtext">La mia capacità di sintesi è ancora veloce e precisa.</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="synthesis" value="5">
+              <div>
+                <span class="option-text">Faticoso ma fattibile.</span>
+                <span class="option-subtext">Ho sentito la mancanza del riassunto automatico, ho dovuto rileggere più volte.</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="synthesis" value="10">
+              <div>
+                <span class="option-text">Difficoltà cognitiva ("Brain Fog").</span>
+                <span class="option-subtext">Fatico a distinguere l'importante dal superfluo senza un aiuto esterno.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="audit-item">
+          <label class="question-label">Test B: Tolleranza alla frustrazione — Il foglio bianco</label>
+          <p class="question-hint">Compito: inizia un task da zero (scrivi una mail delicata o una funzione di codice) senza prompt iniziale.</p>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="frustration" value="0">
+              <div>
+                <span class="option-text">Approccio strutturato.</span>
+                <span class="option-subtext">Ho fatto una scaletta mentale e ho iniziato a scrivere. L'attrito è normale.</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="frustration" value="8">
+              <div>
+                <span class="option-text">Ritardo da "Prompt-Dependency".</span>
+                <span class="option-subtext">Ho fissato lo schermo vuoto sentendo l'impulso di aprire ChatGPT. Mi sono sentito bloccato.</span>
+              </div>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="frustration" value="15">
+              <div>
+                <span class="option-text">Paralisi.</span>
+                <span class="option-subtext">Non so più come impostare il tono o la struttura senza una bozza generata.</span>
+              </div>
+            </label>
+          </div>
+          <textarea placeholder="Note facoltative: cosa hai provato durante il blocco?"></textarea>
+        </div>
+      </div>
+
+      <!-- FASE 3 -->
+      <div class="phase-card">
+        <span class="phase-label">Fase 3</span>
+        <h2>Linea d'ombra — Analisi</h2>
+        <div class="instruction-box">
+          <strong>Obiettivo</strong>
+          Valutare cosa rimane quando lo strumento si spegne.
+        </div>
+
+        <div class="audit-item">
+          <label class="question-label">Analisi qualità vs velocità</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="quality" value="0">
+              <span class="option-text">Il mio lavoro "a mano" è più lento, ma di qualità superiore o più originale.</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="quality" value="5">
+              <span class="option-text">La qualità è simile, cambia solo la velocità.</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="quality" value="10">
+              <span class="option-text">Senza AI, il mio lavoro è qualitativamente scadente.</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="audit-item">
+          <label class="question-label">Competenza residua — La domanda difficile</label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="competence" value="0">
+              <span class="option-text">L'AI è un acceleratore: so fare tutto quello che le chiedo.</span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="competence" value="20">
+              <span class="option-text">L'AI è una protesi: ci sono cose che faccio con l'AI che non saprei fare da solo.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="btn-submit" onclick="calculateDiagnosis()">Calcola il punto nave</button>
+    </form>
+
+    <div id="results-container">
+      <div id="result-card" class="result-card">
+        <span id="score-badge" class="score-badge"></span>
+        <h2 id="result-title"></h2>
+        <p id="result-desc" class="diagnosis-text"></p>
+      </div>
+      <div class="action-plan">
+        <h3>Protocollo di correzione rotta</h3>
+        <ul id="action-list"></ul>
+      </div>
+      <button type="button" class="btn-reset" onclick="resetAudit()">Nuova valutazione</button>
+    </div>
+  </div>
+
+  <script>
+    function calculateDiagnosis() {
+      const form = document.getElementById('auditForm');
+      const formData = new FormData(form);
+      let score = 0;
+      for (let value of formData.values()) {
+        if (value !== "") score += parseInt(value);
+      }
+
+      const container = document.getElementById('results-container');
+      const card = document.getElementById('result-card');
+      const badge = document.getElementById('score-badge');
+      const title = document.getElementById('result-title');
+      const desc = document.getElementById('result-desc');
+      const list = document.getElementById('action-list');
+
+      let r;
+      if (score <= 10) {
+        r = {
+          zone: 'zone-green',
+          badge: 'Bonaccia superata: Capitano',
+          title: 'Dominio cognitivo',
+          desc: "La tua \"forza muscolare\" è intatta. Usi l'AI come un sestante: uno strumento di precisione per navigare meglio, ma sai orientarti con le stelle. La delega è consapevole e non sostitutiva.",
+          actions: [
+            "<strong>Mantenimento:</strong> Continua così. Usa giorni \"No-AI\" una volta al mese per igiene mentale.",
+            "<strong>Sfida l'AI:</strong> Non usarla per le risposte, usala come \"Avvocato del Diavolo\" per trovare falle nei tuoi ragionamenti.",
+            "<strong>Mentoring:</strong> Sei nella posizione ideale per insegnare la differenza tra delega e dipendenza."
+          ]
+        };
+      } else if (score <= 35) {
+        r = {
+          zone: 'zone-yellow',
+          badge: 'Attenzione: Atrofia iniziale',
+          title: 'Inizio di deriva',
+          desc: "Hai iniziato a barattare la competenza con la comodità. La tua tolleranza alla frustrazione è scesa: cerchi la scorciatoia prima di aver formulato il problema. Sei ancora capace, ma i tuoi muscoli cognitivi si stanno infiacchendo.",
+          actions: [
+            "<strong>La Regola dei 10 Minuti:</strong> Vietato aprire l'AI nei primi 10 minuti di un task. Sforzati di strutturare la soluzione da solo.",
+            "<strong>Editing ad Alta Voce:</strong> Mai copiare-incollare. Riscrivi o rileggi ad alta voce l'output per riappropriarti della sintassi.",
+            "<strong>Re-Skill Sintetico:</strong> Esercitati a riassumere le riunioni a mano prima di chiedere il recap all'AI."
+          ]
+        };
+      } else {
+        r = {
+          zone: 'zone-red',
+          badge: 'Allarme: Passeggero clandestino',
+          title: 'Perdita della rotta',
+          desc: "La bonaccia ha rivelato una verità scomoda: la nave non si muove senza l'AI. Hai delegato non solo l'esecuzione, ma il processo di pensiero. C'è il rischio reale di non saper valutare la qualità di ciò che produci.",
+          actions: [
+            "<strong>Detox Radicale:</strong> 24 ore di astinenza totale dai LLM. Accetta che la produttività crollerà: è riabilitazione.",
+            "<strong>Studio dei Fondamentali:</strong> Se usi l'AI per scrivere cose che non sapresti creare da zero, devi tornare a studiare le basi.",
+            "<strong>Reverse Engineering:</strong> Fatti spiegare dall'AI come è arrivata a una soluzione, e prova a replicarla manualmente."
+          ]
+        };
+      }
+
+      card.className = 'result-card ' + r.zone;
+      badge.textContent = r.badge;
+      title.textContent = r.title;
+      desc.textContent = r.desc;
+      list.innerHTML = r.actions.map(a => '<li>' + a + '</li>').join('');
+      container.style.display = 'block';
+      container.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetAudit() {
+      document.getElementById('auditForm').reset();
+      document.getElementById('results-container').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
