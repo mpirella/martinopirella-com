@@ -15,7 +15,7 @@ const sorted = articles
     <div class="hero-content">
       <div class="hero-grid-layout">
         <div class="hero-left">
-          <img src="/images/screenshot-2026-02-20-alle-13.01.44.png" alt="Martino Pirella" class="hero-photo" />
+          <img src="/images/screenshot-2026-02-20-alle-13.01.44.webp" alt="Martino Pirella" class="hero-photo" />
         </div>
         <div class="hero-right">
           <p class="eyebrow">Consulenza · Formazione · Ricerca</p>
@@ -300,7 +300,12 @@ const sorted = articles
       grid-template-columns: 1fr;
     }
     .hero-left {
-      display: none;
+      max-height: 300px;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+    }
+    .hero-right {
+      padding-left: 0;
     }
     .diagnostica-grid {
       grid-template-columns: 1fr;

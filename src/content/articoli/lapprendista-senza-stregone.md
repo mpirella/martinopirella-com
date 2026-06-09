@@ -3,7 +3,7 @@ title: "L'apprendista senza stregone"
 date: 2026-05-24
 slug: "lapprendista-senza-stregone"
 excerpt: "La ricordate certamente, nel film Fantasia. C'è una stanza di pietra, in penombra, con una grande vasca al centro. Lo stregone Yen Sid lavora sui suoi incantesimi, e accanto a lui Topolino, vestito "
-image: "/images/image-6.png"
+image: "/images/image-6.webp"
 ---
 
 ## §1. La scena

@@ -3,7 +3,7 @@ title: "Pronto? Chi parla? Identità, opacità e responsabilità nell’era degl
 date: 2026-05-24
 slug: "pronto-chi-parla-identita-opacita-e-responsabilita-nellera-degli-agenti-ibridi"
 excerpt: "È una mattina di maggio. Un utente — che chiameremo F. — apre una chat con il supporto Apple per risolvere un problema concreto e pratico: vuole acquistare un prodotto con lo sconto Education, pagarlo"
-image: "/images/image-5.png"
+image: "/images/image-5.webp"
 ---
 
 ## Saggio esplorativo su una conversazione ordinaria e le sue implicazioni straordinarie

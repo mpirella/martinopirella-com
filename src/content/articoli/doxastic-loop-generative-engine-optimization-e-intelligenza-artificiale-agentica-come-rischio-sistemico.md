@@ -3,7 +3,7 @@ title: "Doxastic loop, Generative Engine Optimization e intelligenza artificiale
 date: 2026-05-24
 slug: "doxastic-loop-generative-engine-optimization-e-intelligenza-artificiale-agentica-come-rischio-sistemico"
 excerpt: "Un sistema agentico di intelligenza artificiale non legge le fonti che usa. Le recupera, le valuta per autorevolezza algoritmica, e agisce. Se le fonti sono state costruite per sembrare autorevoli, l’"
-image: "/images/image-2.png"
+image: "/images/image-2.webp"
 ---
 
 Un sistema agentico di intelligenza artificiale non legge le fonti che usa. Le recupera, le valuta per autorevolezza algoritmica, e agisce. Se le fonti sono state costruite per sembrare autorevoli, l’agente agisce su una base epistemica compromessa, senza che nessun essere umano abbia letto, valutato o anche solo visto passare l’informazione.

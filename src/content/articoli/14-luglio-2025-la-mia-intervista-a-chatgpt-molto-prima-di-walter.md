@@ -3,7 +3,7 @@ title: "14 luglio 2025: la mia intervista a ChatGPT (molto prima di Walter)."
 date: 2026-05-24
 slug: "14-luglio-2025-la-mia-intervista-a-chatgpt-molto-prima-di-walter"
 excerpt: "Martino: Conversiamo un po' su di te."
-image: "/images/image-3.png"
+image: "/images/image-3.webp"
 ---
 
 ## Intervista con un LLM

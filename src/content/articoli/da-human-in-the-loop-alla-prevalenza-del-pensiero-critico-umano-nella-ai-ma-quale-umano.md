@@ -3,7 +3,7 @@ title: "Da «human in the loop» alla «prevalenza del pensiero critico umano» 
 date: 2026-05-24
 slug: "da-human-in-the-loop-alla-prevalenza-del-pensiero-critico-umano-nella-ai-ma-quale-umano"
 excerpt: "Negli ultimi sei anni il dibattito europeo e italiano sulla supervisione umana dei sistemi di intelligenza artificiale ha costruito un edificio normativo articolato, che vale la pena guardare nella su"
-image: "/images/image.png"
+image: "/images/image.webp"
 ---
 
 ## Una fenomenologia preliminare alla supervisione umana sui sistemi di intelligenza artificiale

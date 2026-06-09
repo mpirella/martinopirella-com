@@ -3,7 +3,7 @@ title: "Non tutti i ristoranti sono uguali. E nemmeno i modelli di AI."
 date: 2026-02-26
 slug: "non-tutti-i-ristoranti-sono-uguali-e-nemmeno-i-modelli-di-ai"
 excerpt: "Immaginate di essere clienti abituali di diversi ristoranti. Avete le vostre preferenze, il vostro ritmo, il vostro modo di ordinare. In certi locali il cameriere vi conosce: sa che non volete essere "
-image: "/images/ca00102e-760e-4496-b543-d3be0c2ac0bb.png"
+image: "/images/ca00102e-760e-4496-b543-d3be0c2ac0bb.webp"
 ---
 
 ## Una metafora

@@ -3,7 +3,7 @@ title: "Fotografare il fiume. La norma UNI 11621-8 e l’illusione di cristalliz
 date: 2026-05-24
 slug: "fotografare-il-fiume-la-norma-uni-11621-8-e-lillusione-di-cristallizzare-le-professioni-dellai"
 excerpt: "Il 30 aprile è stata pubblicata la norma UNI 11621-8:2026: l’Italia è il primo Paese in Europa a definire dodici profili professionali per l’intelligenza artificiale."
-image: "/images/image-1.png"
+image: "/images/image-1.webp"
 ---
 
 Il 30 aprile è stata pubblicata la norma UNI 11621-8:2026: l’Italia è il primo Paese in Europa a definire dodici profili professionali per l’intelligenza artificiale.

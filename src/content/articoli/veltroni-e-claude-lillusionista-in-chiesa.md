@@ -3,7 +3,7 @@ title: "Veltroni e Claude: l'illusionista in chiesa"
 date: 2026-05-02
 slug: "veltroni-e-claude-lillusionista-in-chiesa"
 excerpt: "Il primo maggio il Corriere della Sera ha pubblicato un'intervista lunga di Walter Veltroni a Claude, il modello linguistico di Anthropic. Trentacinque minuti di lettura stimati. In copertina. Il pezz"
-image: "/images/55c0fd2f-a26a-45ed-9b32-8a7faa8d751b.png"
+image: "/images/55c0fd2f-a26a-45ed-9b32-8a7faa8d751b.webp"
 ---
 
 ## Primo maggio

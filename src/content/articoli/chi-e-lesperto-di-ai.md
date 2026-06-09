@@ -3,7 +3,7 @@ title: "Chi è l'esperto di AI?"
 date: 2026-03-11
 slug: "chi-e-lesperto-di-ai"
 excerpt: "Il primo istinto è rispondere per accumulo: bisogna saper usare il computer, poi i programmi di base, poi gli strumenti più avanzati, poi quelli specifici del proprio settore, e così via, salendo una "
-image: "/images/unnamed-33.jpg"
+image: "/images/unnamed-33.webp"
 ---
 
 ### Cosa bisogna sapere per essere esperti di intelligenza artificiale?[](https://www.stultiferanavis.it/la-rivista/chi-e-lesperto-di-intelligenza-artificiale#)

@@ -3,7 +3,7 @@ title: "\"Ghe pensi mi!\" AI agentica e rimozione del pensiero."
 date: 2026-03-13
 slug: "ghe-pensi-mi-ai-agentica-e-rimozione-del-pensiero"
 excerpt: "C'è un fantasma che si aggira nel mercato dell'intelligenza artificiale, e ha la forma rassicurante di una promessa: non dovrai più pensarci tu. Lo dicono i comunicati stampa, lo ripetono le demo, lo "
-image: "/images/chatgpt-image-13-mar-2026-13_54_31.png"
+image: "/images/chatgpt-image-13-mar-2026-13_54_31.webp"
 ---
 
 C'è un fantasma che si aggira nel mercato dell'intelligenza artificiale, e ha la forma rassicurante di una promessa: non dovrai più pensarci tu. Lo dicono i comunicati stampa, lo ripetono le demo, lo gridano le conference keynote. L'AI agentica (l'ultimo oggetto del desiderio dell'industria tecnologica) viene presentata come il salto definitivo: sistemi che non si limitano a rispondere, ma agiscono. Che prendono iniziativa. Che portano a termine compiti complessi senza che l'essere umano debba intervenire, se non per dire cosa vuole ottenere.

@@ -3,7 +3,7 @@ title: "Prompt e carbonara"
 date: 2025-07-28
 slug: "prompt-e-carbonara"
 excerpt: "Martino&nbsp;"
-image: "/images/chatgpt-image-28-lug-2025-16_53_06-1.png"
+image: "/images/chatgpt-image-28-lug-2025-16_53_06-1.webp"
 ---
 
 **Martino&nbsp;**

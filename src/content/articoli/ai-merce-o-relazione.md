@@ -3,7 +3,7 @@ title: "AI, merce o relazione?"
 date: 2026-03-26
 slug: "ai-merce-o-relazione"
 excerpt: "Chiara Arlati ha scritto un post su LinkedIn che mi ha fermato. Non perché dicesse qualcosa che non sapevo, ma perché diceva qualcosa che sapevo, con parole arrivate da un percorso completamente indip"
-image: "/images/chatgpt-image-26-mar-2026-14_17_15.png"
+image: "/images/chatgpt-image-26-mar-2026-14_17_15.webp"
 ---
 
 ## Il paradosso del mercato della consulenza

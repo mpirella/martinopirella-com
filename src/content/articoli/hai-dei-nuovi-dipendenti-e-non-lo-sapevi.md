@@ -3,7 +3,7 @@ title: "Hai dei nuovi dipendenti e non lo sapevi"
 date: 2026-03-04
 slug: "hai-dei-nuovi-dipendenti-e-non-lo-sapevi"
 excerpt: "Fausto Walter Turcohttps://www.linkedin.com/in/turcofausto/ ha sollevato questa settimanahttps://www.linkedin.com/posts/turcofausto_ilpuntodigitale-promptepartitadoppia-activity-743484027463748"
-image: "/images/unnamed-32.jpg"
+image: "/images/unnamed-32.webp"
 ---
 
 ## La governance ai tempi della AI

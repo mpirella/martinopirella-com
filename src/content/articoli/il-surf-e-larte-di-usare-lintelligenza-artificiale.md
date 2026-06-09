@@ -3,7 +3,7 @@ title: "Il Surf e l'Arte di usare l'intelligenza artificiale."
 date: 2026-02-22
 slug: "il-surf-e-larte-di-usare-lintelligenza-artificiale"
 excerpt: "Nel giugno del 1907, Jack London è seduto all'ombra sulla spiaggia di Waikiki. Sta guardando il mare. Davanti a lui, a mezzo miglio dalla riva, le onde si formano e avanzano — lunghe un miglio, creste"
-image: "/images/jack_london_and_charmian_london_at_waikiki.jpg"
+image: "/images/jack_london_and_charmian_london_at_waikiki.webp"
 ---
 
 ## Un accostamento inaspettato

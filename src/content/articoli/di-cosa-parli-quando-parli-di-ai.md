@@ -3,7 +3,7 @@ title: "Di cosa parli quando parli di AI?"
 date: 2026-03-16
 slug: "di-cosa-parli-quando-parli-di-ai"
 excerpt: "Frequento il discorso sull'intelligenza artificiale da un po'. Lo frequento per lavoro, per interesse, per una forma di inquietudine che non si è ancora trasformata in abitudine. Leggo, ascolto, parte"
-image: "/images/la-costruzione-della-torre-di-babele-marten-van-valckenborch-1535-1612-towneley-hall-art-gallery-and-museum-burlington_85d86c1b_1200x630.jpg"
+image: "/images/la-costruzione-della-torre-di-babele-marten-van-valckenborch-1535-1612-towneley-hall-art-gallery-and-museum-burlington_85d86c1b_1200x630.webp"
 ---
 
 ## L'uomo al centro (di cosa?)

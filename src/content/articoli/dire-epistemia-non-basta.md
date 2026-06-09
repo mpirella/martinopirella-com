@@ -3,7 +3,7 @@ title: "Dire \"epistemia\" non basta."
 date: 2026-03-14
 slug: "dire-epistemia-non-basta"
 excerpt: "C'è un termine che sta avendo una fortuna notevole nel dibattito italiano sull'intelligenza artificiale: epistemia. Coniato da Walter Quattrociocchihttps://www.linkedin.com/in/walterquattrociocch"
-image: "/images/314e6292-a282-4a4b-992e-ef7b28347867.png"
+image: "/images/314e6292-a282-4a4b-992e-ef7b28347867.webp"
 ---
 
 C'è un termine che sta avendo una fortuna notevole nel dibattito italiano sull'intelligenza artificiale: *epistemia*. Coniato da [Walter Quattrociocchi](https://www.linkedin.com/in/walterquattrociocchi) e dal suo gruppo di ricerca, pubblicato su [PNAS](https://www.pnas.org/doi/10.1073/pnas.2518443122), accolto da [Treccani](https://www.treccani.it/vocabolario/neo-epistemia_(Neologismi)/) come neologismo, ripreso dal Corriere della Sera, da Wired, da Repubblica, dall'Ansa, designa "la confortevole illusione di conoscenza prodotta dall'interazione con l'IA generativa dei grandi modelli linguistici". Il termine è efficace, il fenomeno che descrive è reale, e nessuna persona ragionevole negherebbe che esista un rischio concreto legato alla plausibilità simulativa dei testi generati da un LLM.

@@ -3,7 +3,7 @@ title: "Il vuoto e il surrogato."
 date: 2026-03-31
 slug: "il-vuoto-e-il-surrogato"
 excerpt: "Una quindicina di anni fa, con un gruppo di amici, abbiamo fondato un gruppo musicale e teatrale di omaggio ai Beatles: I Beatles a Roma. Il dato toponomastico è un dettaglio importante, perché a Roma"
-image: "/images/chatgpt-image-31-mar-2026-12_38_21.png"
+image: "/images/chatgpt-image-31-mar-2026-12_38_21.webp"
 ---
 
 ## L'AI non ha impoverito il confronto collettivo. Lo ha trovato già in cassa integrazione.[](https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.stultiferanavis.it%2Farea-personale%2Fil-vuoto-e-il-surrogato-lai-non-ha-impoverito-il-confronto-collettivo-lo-ha-trovato-gia-in-cassa-integrazione)[](https://telegram.me/share/url?url=https%3A%2F%2Fwww.stultiferanavis.it%2Farea-personale%2Fil-vuoto-e-il-surrogato-lai-non-ha-impoverito-il-confronto-collettivo-lo-ha-trovato-gia-in-cassa-integrazione)

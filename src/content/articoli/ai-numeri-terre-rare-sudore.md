@@ -3,7 +3,7 @@ title: "AI: Numeri. Terre rare. Sudore"
 date: 2026-02-19
 slug: "ai-numeri-terre-rare-sudore"
 excerpt: "Guardavo il tennis a Doha: skyline notturno abbagliante, grattacieli surreali, luci ovunque. Mia moglie mi aveva raccontato di Dubai: stesso eccesso, stessa estetica del futuro ostentato. Sotto, lavor"
-image: "/images/img_9948.png"
+image: "/images/img_9948.webp"
 ---
 
 *Guardavo il tennis a Doha in TV. Era sera, e la regia indugiava sullo skyline: grattacieli impossibili, strade illuminate come piste di decollo, una città che sembrava costruita apposta per essere vista di notte. Tutto scintillava. Tutto eccedeva. Era la promessa di un futuro già arrivato — almeno per chi poteva permettersi di guardarlo.Mia moglie era stata a Dubai qualche anno fa. Stesso spettacolo, stessa grammatica urbana: l’eccesso come estetica, la luce come potere, l’architettura come dichiarazione. Torri che sembrano sfidare non solo la gravità, ma anche il buon senso. Un mondo costruito nel deserto per dire al mondo che si può.E poi, sotto. Sempre sotto.*

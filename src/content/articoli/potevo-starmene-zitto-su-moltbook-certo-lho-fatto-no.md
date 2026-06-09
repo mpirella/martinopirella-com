@@ -3,7 +3,7 @@ title: "Potevo starmene zitto su Moltbook? Certo. L’ho fatto? No."
 date: 2026-02-20
 slug: "potevo-starmene-zitto-su-moltbook-certo-lho-fatto-no"
 excerpt: "Quando una piattaforma chiamata Moltbook è esplosa sui radar di Internet a fine gennaio 2026, con il suo tagline provocatorio — A Social Network For AI Agents — sapevo che avrei dovuto dire qualcosa"
-image: "/images/1771147198590.jpeg"
+image: "/images/1771147198590.webp"
 ---
 
 ### Alcune opinioni ed un vecchio esperimento

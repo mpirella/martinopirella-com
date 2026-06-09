@@ -3,7 +3,7 @@ title: "Gli Agenti AI non hanno mai paura. Ed è un problema."
 date: 2026-05-24
 slug: "gli-agenti-ai-non-hanno-mai-paura-ed-e-un-problema"
 excerpt: "Per anni abbiamo discusso di intelligenza artificiale come di uno strumento che risponde. Le fai una domanda, ti dà una risposta. Scrivi un testo, lo corregge. Hai un dubbio, lo chiarisce. Un interloc"
-image: "/images/image-4.png"
+image: "/images/image-4.webp"
 ---
 
 ## Gli agenti AI: quando l’intelligenza artificiale smette di parlare e comincia ad agire
