@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<title>Mappa Globale dell'Implementazione AI per Settore — Edizione 2026</title>
+<meta name="description" content="Una ricognizione critica dei livelli di adozione, impatto e rischio dell'intelligenza artificiale nei principali settori economici, sociali e militari. Dati verificati, maggio 2026.">
+<meta name="author" content="Martino Pirella">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mappa Globale dell'Implementazione AI per Settore — Edizione 2026">
+<meta property="og:description" content="Una ricognizione critica dei livelli di adozione, impatto e rischio dell'AI nei principali settori economici, sociali e militari. Di Martino Pirella, consulente AI e ricercatore indipendente.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=630&auto=format&fit=crop&q=80">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://diffusione-ai.netlify.app/">
+<meta property="og:site_name" content="Mappa Globale AI 2026">
+<meta property="article:author" content="Martino Pirella">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mappa Globale dell'Implementazione AI per Settore — 2026">
+<meta name="twitter:description" content="Una ricognizione critica dei livelli di adozione, impatto e rischio dell'AI nei principali settori. Di Martino Pirella.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=630&auto=format&fit=crop&q=80">
+<title>Mappa Globale dell'AI — Edizione 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #252729;
+  --surface: #2e3033;
+  --surface2: #363a3d;
+  --border: #424648;
+  --border-light: #4e5255;
+  --text: #eceef0;
+  --text-mid: #b8bcc2;
+  --text-dim: #6a6e74;
+  --accent: #c8b890;
+  --accent2: #8ab09a;
+  --accent3: #b87878;
+  --red: #d05050;
+  --orange: #d08840;
+  --yellow: #b8a030;
+  --green: #60906e;
+  --blue: #5878a0;
+  --purple: #7a5890;
+  --nav-w: 300px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: #252729;
+  color-scheme: dark;
+}
+
+body {
+  background: #252729;
+  color: #eceef0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 22px;
+  line-height: 1.8;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── NAV LATERALE ── */
+nav {
+  width: var(--nav-w);
+  height: 100vh;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  top: 0; left: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  z-index: 100;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-brand {
+  padding: 24px 20px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-brand-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+
+.nav-brand-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.nav-links {
+  padding: 12px 0;
+  flex: 1;
+}
+
+.nav-group-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding: 18px 20px 8px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  text-decoration: none;
+  color: var(--text-mid);
+  font-size: 16px;
+  transition: all 0.15s;
+  border-left: 2px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: var(--surface2);
+  border-left-color: var(--accent);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: rgba(212,184,138,0.07);
+}
+
+.nav-link-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  min-width: 22px;
+}
+
+.nav-footer {
+  padding: 18px 20px;
+  border-top: 1px solid var(--border);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+/* ── MAIN ── */
+main {
+  margin-left: var(--nav-w);
+  flex: 1;
+  max-width: calc(100vw - var(--nav-w));
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3) saturate(0.5);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(18,17,16,0.7) 0%, transparent 60%, rgba(18,17,16,0.9) 100%);
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 48px 60px;
+}
+
+.hero-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px;
+  font-weight: 700;
+  line-height: 1.0;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  margin-bottom: 16px;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: 19px;
+  color: var(--text-mid);
+  max-width: 640px;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ── SEZIONI ── */
+section {
+  padding: 72px 64px;
+  border-bottom: 1px solid var(--border);
+}
+
+section:last-child { border-bottom: none; }
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.section-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.section-title-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-left: 8px;
+  align-self: center;
+}
+
+.section-new {
+  font-family: 'DM Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: var(--accent3);
+  color: var(--bg);
+  padding: 2px 6px;
+  border-radius: 2px;
+  align-self: center;
+}
+
+/* ── IMMAGINE SEZIONE ── */
+.section-img-wrap {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.section-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.7) saturate(0.65);
+}
+
+.section-img-caption {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: right;
+  padding: 6px 0 0;
+}
+
+.img-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 32px;
+}
+
+.img-duo img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.65) saturate(0.6);
+}
+
+/* ── INTRO / METODOLOGIA ── */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.intro-text p {
+  color: var(--text-mid);
+  margin-bottom: 16px;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.intro-text p strong { color: var(--text); font-weight: 500; }
+
+.pull-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.5;
+  color: var(--accent);
+  border-left: 3px solid var(--accent);
+  padding-left: 24px;
+  margin: 28px 0;
+}
+
+/* ── LEGENDA ── */
+.legend-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 32px;
+}
+
+.legend-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.legend-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.legend-desc {
+  font-size: 16px;
+  color: var(--text-mid);
+  line-height: 1.45;
+}
+
+/* ── DATI DI CONTESTO ── */
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 0;
+}
+
+.data-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+.data-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.data-label {
+  font-size: 17px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.data-source {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 10px;
+  letter-spacing: 0.05em;
+}
+
+/* ── TABELLE ── */
+.table-wrap {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+thead tr {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border-light);
+}
+
+thead th {
+  padding: 14px 18px;
+  text-align: left;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #8a9098;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+}
+
+tbody tr:hover { background: rgba(255,255,255,0.025); }
+
+tbody td {
+  padding: 16px 18px;
+  vertical-align: top;
+  line-height: 1.6;
+  color: #b8bcc2;
+}
+
+tbody td:first-child {
+  color: #eceef0;
+  font-weight: 500;
+}
+
+tbody td:nth-child(3),
+tbody td:nth-child(4) {
+  color: #b0b5bc;
+}
+
+/* ── BADGE LIVELLI ── */
+.lv {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 5px 11px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.lv-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.lv-massiva   { background: rgba(192,64,64,0.15);  color: #d07070; }
+.lv-massiva .lv-dot   { background: #c04040; }
+.lv-avanzata  { background: rgba(192,120,48,0.15); color: #d09050; }
+.lv-avanzata .lv-dot  { background: #c07830; }
+.lv-crescente { background: rgba(168,144,32,0.15); color: #c0a840; }
+.lv-crescente .lv-dot { background: #a89020; }
+.lv-emergente { background: rgba(80,120,96,0.15);  color: #70a882; }
+.lv-emergente .lv-dot { background: #507860; }
+.lv-ricerca   { background: rgba(72,104,136,0.15); color: #6890b0; }
+.lv-ricerca .lv-dot   { background: #486888; }
+.lv-speciale  { background: rgba(106,72,120,0.15); color: #9070a8; }
+.lv-speciale .lv-dot  { background: #6a4878; }
+
+.badge-new {
+  font-family: 'DM Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--accent3);
+  color: var(--bg);
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.badge-up {
+  font-family: 'DM Mono', monospace;
+  font-size: 7.5px;
+  letter-spacing: 0.06em;
+  background: rgba(192,120,48,0.25);
+  color: #d09050;
+  padding: 1px 5px;
+  border-radius: 2px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* ── NOTE ── */
+.note {
+  background: var(--surface);
+  border-left: 2px solid var(--border-light);
+  padding: 16px 20px;
+  margin-top: 14px;
+  font-size: 17px;
+  color: #b0b5bc;
+  line-height: 1.7;
+}
+
+.note strong { color: #e4e6e8; font-weight: 500; }
+
+.note-warn {
+  border-left-color: var(--orange);
+  background: rgba(208,136,64,0.06);
+}
+
+.note-crit {
+  border-left-color: var(--red);
+  background: rgba(208,80,80,0.06);
+}
+
+/* ── BULLET LISTS ── */
+.crit-list {
+  list-style: none;
+  margin: 16px 0;
+}
+
+.crit-list li {
+  padding: 12px 0 12px 22px;
+  border-bottom: 1px solid var(--border);
+  font-size: 18px;
+  color: var(--text-mid);
+  position: relative;
+  line-height: 1.65;
+}
+
+.crit-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.crit-list li strong { color: var(--text); font-weight: 500; }
+
+/* ── CONCATENAZIONE ── */
+.chain-note {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 24px;
+}
+
+.chain-note-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+}
+
+.chain-note-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent3);
+  margin-bottom: 8px;
+}
+
+.chain-note-item p {
+  font-size: 17px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+
+/* ── ZONA FRANCA ── */
+.zona-franca-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 36px 40px;
+}
+
+.zona-desc {
+  font-size: 18px;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-top: 22px;
+  line-height: 1.75;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+
+/* ── CONSIDERAZIONI ── */
+.consider-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 32px;
+}
+
+.consider-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+.consider-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.consider-item p {
+  font-size: 17px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+/* ── CLOSING ── */
+.closing {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-mid);
+  text-align: center;
+  padding: 52px 80px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin: 44px 0;
+}
+
+/* ── FONTI ── */
+.sources-grid {
+  columns: 2;
+  column-gap: 40px;
+}
+
+.source-item {
+  break-inside: avoid;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.source-title {
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.source-url {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--accent2);
+  word-break: break-all;
+  text-decoration: none;
+}
+
+.source-url:hover { color: var(--accent); }
+
+.source-note {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-top: 3px;
+  font-style: italic;
+}
+
+/* ── METODO SIDEBAR ── */
+.method-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.method-status {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+}
+
+.method-status-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+  gap: 12px;
+}
+
+.status-row:last-child { border-bottom: none; }
+
+.status-label { color: var(--text-mid); flex: 1; }
+
+.status-ok   { color: var(--green);  font-family:'DM Mono',monospace; font-size:13px; }
+.status-warn { color: var(--orange); font-family:'DM Mono',monospace; font-size:13px; }
+.status-bad  { color: var(--red);    font-family:'DM Mono',monospace; font-size:13px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { display: none; }
+  nav.open { display: flex; }
+  main { margin-left: 0; max-width: 100vw; }
+  section { padding: 36px 20px; }
+  .hero { height: auto; min-height: 100svh; }
+  .hero-content { padding: 100px 24px 40px; position: relative; }
+  .hero-img { position: absolute; inset: 0; height: 100%; }
+  .hero-title { font-size: 42px; }
+  .hero-subtitle { font-size: 17px; }
+  .intro-grid, .legend-grid, .data-grid,
+  .consider-grid, .chain-note { grid-template-columns: 1fr; }
+  .method-grid { grid-template-columns: 1fr; }
+  .sources-grid { columns: 1; }
+  .img-duo { grid-template-columns: 1fr; }
+  table { font-size: 15px; }
+  tbody td { padding: 12px 10px; }
+  thead th { padding: 10px; font-size: 10px; }
+  .section-title { font-size: 34px; }
+
+  /* Hamburger button */
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 16px; left: 16px;
+    z-index: 200;
+    width: 48px; height: 48px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  /* Mobile nav overlay */
+  nav {
+    width: 85vw;
+    max-width: 340px;
+    z-index: 150;
+    box-shadow: 4px 0 32px rgba(0,0,0,0.5);
+  }
+
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 140;
+  }
+  .nav-overlay.open { display: block; }
+}
+
+@media (min-width: 901px) {
+  .hamburger { display: none; }
+  .nav-overlay { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Hamburger mobile -->
+<button class="hamburger" id="hamburger" aria-label="Menu">
+  <span></span><span></span><span></span>
+</button>
+<div class="nav-overlay" id="nav-overlay"></div>
+
+<!-- ═══════════════════════════════════════
+     NAVIGAZIONE LATERALE
+═══════════════════════════════════════ -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-brand-title">Mappa Globale dell'Implementazione AI</div>
+    <div class="nav-brand-sub">Edizione Maggio 2026</div>
+  </div>
+
+  <div class="nav-links">
+    <div class="nav-group-label">Introduzione</div>
+    <a href="#metodologia" class="nav-link"><span class="nav-link-num">00</span>Nota metodologica</a>
+    <a href="#legenda" class="nav-link"><span class="nav-link-num">—</span>Legenda & Dati</a>
+
+    <div class="nav-group-label">Settori</div>
+    <a href="#finanza" class="nav-link"><span class="nav-link-num">01</span>Finanza & Economia</a>
+    <a href="#tecnologia" class="nav-link"><span class="nav-link-num">02</span>Tecnologia & Internet</a>
+    <a href="#sorveglianza" class="nav-link"><span class="nav-link-num">03</span>Sorveglianza & Sicurezza</a>
+    <a href="#sanita" class="nav-link"><span class="nav-link-num">04</span>Sanità & Medicina</a>
+    <a href="#trasporti" class="nav-link"><span class="nav-link-num">05</span>Trasporti & Logistica</a>
+    <a href="#lavoro" class="nav-link"><span class="nav-link-num">06</span>Lavoro & Risorse Umane</a>
+    <a href="#educazione" class="nav-link"><span class="nav-link-num">07</span>Educazione</a>
+    <a href="#governo" class="nav-link"><span class="nav-link-num">08</span>Governo & Servizi Pubblici</a>
+    <a href="#difesa" class="nav-link"><span class="nav-link-num">09</span>Difesa & Militare</a>
+    <a href="#media" class="nav-link"><span class="nav-link-num">10</span>Media & Intrattenimento</a>
+    <a href="#retail" class="nav-link"><span class="nav-link-num">11</span>Retail & Commercio</a>
+    <a href="#agricoltura" class="nav-link"><span class="nav-link-num">12</span>Agricoltura & Manifattura</a>
+
+    <div class="nav-group-label">Analisi</div>
+    <a href="#agenti" class="nav-link"><span class="nav-link-num">13</span>Agenti AI ★</a>
+    <a href="#concatenazione" class="nav-link"><span class="nav-link-num">14</span>Concatenazione</a>
+    <a href="#zonafranca" class="nav-link"><span class="nav-link-num">15</span>Zona Franca</a>
+    <a href="#considerazioni" class="nav-link"><span class="nav-link-num">16</span>Considerazioni chiave</a>
+    <a href="#fonti" class="nav-link"><span class="nav-link-num">—</span>Fonti</a>
+  </div>
+
+  <div class="nav-footer">
+    Dati verificati online<br>
+    Maggio 2026<br>
+    <span style="color:#c8b890; font-style:italic; font-family:'DM Sans',sans-serif; font-size:12px;">Martino Pirella</span><br>
+    Consulente AI &amp; ricercatore indipendente<br>
+    <a href="mailto:mpirella@gmail.com" style="color:#c8b890; text-decoration:none;">mpirella@gmail.com</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     MAIN
+═══════════════════════════════════════ -->
+<main>
+
+<!-- HERO -->
+<div class="hero">
+  <img class="hero-img"
+       src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1400&auto=format&fit=crop&q=80"
+       alt="AI visualization">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Ricognizione critica · Aggiornamento dati verificati online</div>
+    <div class="hero-title">Mappa Globale<br>dell'<em>Implementazione AI</em><br>per Settore</div>
+    <div class="hero-subtitle">Una ricognizione critica dei livelli di adozione, impatto e rischio dell'intelligenza artificiale nei principali ambiti della vita economica, sociale e militare — Edizione aggiornata maggio 2026</div>
+    <div style="margin-top:28px; padding-top:20px; border-top:1px solid rgba(236,238,240,0.15); display:flex; flex-wrap:wrap; align-items:baseline; gap:16px 28px;">
+      <span style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:22px; color:#eceef0; font-weight:600;">Martino Pirella</span>
+      <span style="font-family:'DM Mono',monospace; font-size:13px; color:rgba(236,238,240,0.55); letter-spacing:0.07em;">Consulente AI &amp; ricercatore indipendente</span>
+      <a href="mailto:mpirella@gmail.com" style="font-family:'DM Mono',monospace; font-size:13px; color:#c8b890; letter-spacing:0.06em; text-decoration:none;">mpirella@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── NOTA METODOLOGICA ── -->
+<section id="metodologia">
+  <div class="section-header">
+    <span class="section-num">00</span>
+    <h2 class="section-title">Nota Metodologica</h2>
+    <div class="section-title-line"></div>
+  </div>
+
+  <div class="method-grid">
+    <div class="intro-text">
+      <p>Questo documento è una ricognizione critica dei livelli di adozione dell'intelligenza artificiale nei principali settori economici, sociali e militari a livello globale. È stato costruito in due fasi distinte.</p>
+      <p>La <strong>prima edizione</strong> (2025) era basata su una valutazione qualitativa degli autori, fondata su letteratura di settore, osservazione del mercato e rassegna di report pubblici, senza citazioni puntuali sistematiche.</p>
+      <p>Questa <strong>edizione aggiornata</strong> (maggio 2026) integra una verifica online delle principali affermazioni quantitative. Alcune classificazioni sono supportate da fonti primarie verificabili e citate; altre rimangono valutazioni qualitative degli autori, basate su convergenza di letteratura, in assenza di dati aggregati univoci e aggiornati. La distinzione è segnalata nelle note a piè di ogni sezione.</p>
+      <p>I livelli di sofisticazione non misurano soltanto la diffusione tecnologica, ma il grado in cui i sistemi AI <strong>influenzano decisioni reali su persone reali</strong>, spesso senza supervisione adeguata. Le voci con <span class="badge-up">▲ AGG</span> indicano aggiornamenti rispetto alla prima edizione. Le voci con <span class="badge-new">NUOVO</span> sono categorie aggiunte per questa edizione.</p>
+      <div class="pull-quote">«Ciò che oggi è Emergente può diventare Massivo in 18 mesi. La distanza tra questi estremi è la finestra in cui la regolazione è ancora possibile.»</div>
+    </div>
+
+    <div class="method-status">
+      <div class="method-status-title">Status verifica per voce</div>
+      <div class="status-row"><span class="status-label">Trading algoritmico</span><span class="status-warn">STIMA</span></div>
+      <div class="status-row"><span class="status-label">Credit scoring / Fraud detection</span><span class="status-ok">VERIFICATO</span></div>
+      <div class="status-row"><span class="status-label">Guida autonoma (Waymo)</span><span class="status-ok">VERIFICATO</span></div>
+      <div class="status-row"><span class="status-label">Agenti AI (McKinsey)</span><span class="status-ok">VERIFICATO</span></div>
+      <div class="status-row"><span class="status-label">Media / Newsroom AI</span><span class="status-warn">17 ESPERTI</span></div>
+      <div class="status-row"><span class="status-label">Imaging diagnostico</span><span class="status-ok">VERIFICATO</span></div>
+      <div class="status-row"><span class="status-label">ATS screening</span><span class="status-ok">VERIFICATO</span></div>
+      <div class="status-row"><span class="status-label">Salute mentale AI</span><span class="status-ok">VERIFICATO</span></div>
+      <div class="status-row"><span class="status-label">LAWS / Ucraina / Gaza</span><span class="status-ok">VERIFICATO</span></div>
+      <div class="status-row"><span class="status-label">Romania elezioni 2024</span><span class="status-warn">PRECISATO</span></div>
+      <div class="status-row"><span class="status-label">Social scoring cinese</span><span class="status-warn">FONTE DEBOLE</span></div>
+      <div class="status-row"><span class="status-label">Amazon raccomandazioni 35%</span><span class="status-bad">DATO 2013</span></div>
+      <div class="status-row"><span class="status-label">Classificazioni qualitative</span><span class="status-warn">VALUTAZ. AUTORI</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LEGENDA E DATI ── -->
+<section id="legenda" style="background:var(--surface)">
+  <div class="section-header">
+    <h2 class="section-title" style="font-size:24px">Legenda & Dati di Contesto</h2>
+    <div class="section-title-line"></div>
+  </div>
+
+  <div class="legend-grid">
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--red)"></div>
+      <div><div class="legend-name" style="color:#d07070">MASSIVA</div><div class="legend-desc">AI completamente integrata, decisioni autonome, impatto sistemico e spesso invisibile</div></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--orange)"></div>
+      <div><div class="legend-name" style="color:#d09050">AVANZATA</div><div class="legend-desc">Ampio uso operativo, supervisione umana formalmente presente ma spesso ridotta</div></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--yellow)"></div>
+      <div><div class="legend-name" style="color:#c0a840">CRESCENTE</div><div class="legend-desc">Implementazione in espansione, mix automazione/umano in rapida evoluzione</div></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--green)"></div>
+      <div><div class="legend-name" style="color:#70a882">EMERGENTE</div><div class="legend-desc">Sperimentazione, pilot, uso ancora limitato ma in accelerazione</div></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--blue)"></div>
+      <div><div class="legend-name" style="color:#6890b0">RICERCA</div><div class="legend-desc">Principalmente R&D, prototipi, proof of concept</div></div>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background:var(--purple)"></div>
+      <div><div class="legend-name" style="color:#9070a8">NON CLASSIFICABILE</div><div class="legend-desc">Categoria che sfugge alla logica dell'ottimizzazione e della metrica</div></div>
+    </div>
+  </div>
+
+  <div class="data-grid">
+    <div class="data-card">
+      <div class="data-num">87%</div>
+      <div class="data-label">delle istituzioni finanziarie globali usa AI per il rilevamento frodi; nel 2025 intercettano il 92% delle frodi prima dell'approvazione</div>
+      <div class="data-source">Feedzai / CoinLaw, 2025</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">15 M</div>
+      <div class="data-label">corse robotaxi completate da Waymo nel 2025, triplicando il 2024 — ~400.000 corse/settimana in 6 città USA</div>
+      <div class="data-source">Waymo Blog, dicembre 2025</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">23%</div>
+      <div class="data-label">delle organizzazioni globali scala agenti AI in almeno una funzione; ~62% sperimenta in qualche forma</div>
+      <div class="data-source">McKinsey Global Survey, novembre 2025</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">58%</div>
+      <div class="data-label">delle banche globali ha adottato sistemi AI per il credit scoring; 43% usa AI per il credit decisioning</div>
+      <div class="data-source">Helpware / CoinLaw, 2025</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">97%</div>
+      <div class="data-label">degli editori considera l'automazione AI back-end essenziale; 82% usa AI per il newsgathering (panel 17 esperti)</div>
+      <div class="data-source">Reuters Institute, Trends 2026</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">166</div>
+      <div class="data-label">voti a favore della risoluzione ONU sui sistemi d'arma letali autonomi (LAWS), 2 dicembre 2024 — 3 contrari</div>
+      <div class="data-source">ONU / ASIL, 2024–2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 01 FINANZA ── -->
+<section id="finanza">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Finanza & Economia</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="img-duo">
+    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&auto=format&fit=crop&q=75" alt="Stock market data screens">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&auto=format&fit=crop&q=75" alt="Financial data visualization">
+  </div>
+  <div class="section-img-caption">Unsplash · Nicholas Cappello / Luke Chesser</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Trading algoritmico</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>70–80% transazioni borsistiche USA e FX (varianza geografica significativa)</td><td>Può causare flash crash — episodio documentato sullo Yen, ottobre 2024</td></tr>
+        <tr><td>Credit scoring</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>58% delle banche globali usa AI per il credit scoring (2025)</td><td>Determina accesso a prestiti</td></tr>
+        <tr><td>Fraud detection</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>87% istituzioni finanziarie; 92% frodi intercettate prima dell'approvazione</td><td>Blocca carte e conti automaticamente</td></tr>
+        <tr><td>Robo-advisor</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Gestione investimenti automatizzata in forte crescita</td><td>Gestisce miliardi in asset</td></tr>
+        <tr><td>Pricing dinamico</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Prezzi in tempo reale su airline, hotel, retail, energia</td><td>Influenza costi quotidiani</td></tr>
+        <tr><td>Underwriting assicurativo</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Valutazione rischi e premi AI-assisted</td><td>Determina coperture e costi</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>Metodologia:</strong> Credit scoring e Fraud detection sono supportati da dati verificati (Helpware, CoinLaw, Feedzai 2025). Il dato 70–80% sul trading algoritmico è una stima consolidata con varianza geografica: in India scende al ~40%. Robo-advisor, Pricing dinamico e Underwriting sono classificazioni qualitative degli autori, coerenti con la letteratura di settore ma prive di un dato primario aggregato univoco al 2025–2026.</div>
+</section>
+
+<!-- ── 02 TECNOLOGIA ── -->
+<section id="tecnologia" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Tecnologia & Internet</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="section-img-wrap">
+    <img class="section-img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&auto=format&fit=crop&q=75" alt="Data center servers">
+    <div class="section-img-caption">Unsplash · Taylor Vick</div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Feed algoritmi social</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>AI-curated content al 40%+ del News Feed Facebook (2025); TikTok interamente algoritmico</td><td>Influenza opinioni di miliardi di persone</td></tr>
+        <tr><td>Search engines</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>Google AI Overview riduce traffico organico agli editori del 33% (Reuters Institute 2026)</td><td>Determina accesso all'informazione</td></tr>
+        <tr><td>Pubblicità targetizzata</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>Mercato programmatic advertising interamente AI-driven</td><td>Muove l'economia digitale</td></tr>
+        <tr><td>Content moderation</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Rimozione automatica su scala miliardaria, supervisione umana residua</td><td>Censura vs sicurezza</td></tr>
+        <tr><td>Raccomandazioni</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>Netflix, Spotify, Amazon, YouTube: consumo largamente guidato dall'algoritmo</td><td>Bolle culturali sempre più strette</td></tr>
+        <tr><td>Traduzione automatica</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Google Translate, DeepL, integrazione nei browser</td><td>Abbatte barriere linguistiche</td></tr>
+        <tr><td>Assistenti virtuali</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Siri, Alexa, chatbot aziendali in ogni casa e dispositivo</td><td>Interfaccia AI di massa</td></tr>
+        <tr><td>AI generativa consumer</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span><span class="badge-new">NUOVO</span></td><td>ChatGPT (900M+ download luglio 2025), Gemini, Claude, Copilot</td><td>Riscrive flussi di lavoro cognitivi</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>Metodologia:</strong> il dato sull'AI Overview Google è tratto da Reuters Institute 2026. Il dato sui feed social è supportato da analisi Hashmeta/Facebook 2025 e Knight Georgetown Institute 2025. Le voci Pubblicità targetizzata, Raccomandazioni, Traduzione, Assistenti virtuali sono classificazioni qualitative degli autori.</div>
+</section>
+
+<!-- ── 03 SORVEGLIANZA ── -->
+<section id="sorveglianza">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Sorveglianza & Sicurezza</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="section-img-wrap">
+    <img class="section-img" src="https://images.unsplash.com/photo-1496096265110-f83ad7f96608?w=1200&auto=format&fit=crop&q=75" alt="Surveillance cameras">
+    <div class="section-img-caption">Unsplash · Lianhao Qu</div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Riconoscimento facciale</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span> / <span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span> *</td><td>In Cina: ~600M telecamere con AI integrata (2025, stima giornalistica)</td><td>Privacy vs sicurezza pubblica</td></tr>
+        <tr><td>Sorveglianza predittiva</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Previsione crimini per zona; controversa in USA e UK</td><td>Rischio discriminazione sistemica</td></tr>
+        <tr><td>Analisi comportamentale</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Aeroporti, eventi, luoghi pubblici</td><td>Profiling automatico</td></tr>
+        <tr><td>Cybersecurity AI</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Rilevamento intrusioni, difesa infrastrutture critiche</td><td>Difesa infrastrutture critiche</td></tr>
+        <tr><td>Social scoring</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span> *</td><td>Sistema cinese: sistema frammentato, 80 miliardi record su ~180M imprese (fonte non primaria)</td><td>Controllo comportamenti su scala statale</td></tr>
+        <tr><td>Droni autonomi</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Pattugliamento, ricognizione, usi civili e militari</td><td>Sorveglianza pervasiva</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note note-warn"><strong>* Nota geografica critica:</strong> MASSIVA in Cina; CRESCENTE in UE dove l'AI Act vieta il riconoscimento facciale in tempo reale nelle forze dell'ordine. Il social scoring cinese è un sistema molto più frammentato di quanto la narrazione occidentale spesso descriva — non un database unico centralizzato. Fonte accademica di riferimento: Merics, "China's Social Credit System" (2021); China Law Translate per aggiornamenti normativi.</div>
+</section>
+
+<!-- ── 04 SANITÀ ── -->
+<section id="sanita" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Sanità & Medicina</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="img-duo">
+    <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=700&auto=format&fit=crop&q=75" alt="Medical imaging AI">
+    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&auto=format&fit=crop&q=75" alt="Hospital technology">
+  </div>
+  <div class="section-img-caption">Unsplash · Accuray / National Cancer Institute</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Imaging diagnostico</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>48% radiologi europei usa AI (2024, da 20% nel 2018); 71% ospedali acuti USA ha AI in EHR</td><td>Diagnosi più rapide e accurate</td></tr>
+        <tr><td>Drug discovery</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>AlphaFold e strumenti simili in espansione, ancora in fase di transizione verso la clinica</td><td>Accelera percorsi di ricerca</td></tr>
+        <tr><td>Triage automatizzato</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Priorità pronto soccorso AI-assisted</td><td>Riduzione tempi di attesa</td></tr>
+        <tr><td>Chirurgia robotica</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Da Vinci e analoghi diffusi, con piena supervisione chirurgica</td><td>Precisione aumentata</td></tr>
+        <tr><td>Monitoraggio pazienti</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Wearable, alert automatici, monitoraggio remoto</td><td>Prevenzione e gestione cronica</td></tr>
+        <tr><td>Medicina personalizzata</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Terapie su base genomica in trial clinici</td><td>Cure su misura, ancora sperimentali</td></tr>
+        <tr><td>Salute mentale AI</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span><span class="badge-up">▲ AGG</span></td><td>Chatbot terapeutici diffusi; casi documentati di dipendenza patologica e morte tra adolescenti</td><td>Accessibilità alta, rischi gravi senza regolazione sistematica</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note note-crit"><strong>Aggiornamento critico — Salute mentale AI:</strong> la voce è stata aggiornata da EMERGENTE a CRESCENTE. Il 66% dei medici USA usa AI in qualche forma (AMA survey, 2024). Sul versante del rischio: causa Florida contro Character.AI (ottobre 2024); audizioni Senato USA (settembre 2025); il Senato ha esaminato casi di suicidio adolescenziale collegati a dipendenza da chatbot AI. Non esistono ancora standard di sicurezza sistematici né monitoraggio obbligatorio degli effetti avversi. Fonte: Association of Health Care Journalists, novembre 2025; Psychiatric Times, luglio 2025.</div>
+</section>
+
+<!-- ── 05 TRASPORTI ── -->
+<section id="trasporti">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2 class="section-title">Trasporti & Logistica</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="section-img-wrap">
+    <img class="section-img" src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1200&auto=format&fit=crop&q=75" alt="Autonomous vehicle interior">
+    <div class="section-img-caption">Unsplash · Wes Hicks</div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Navigazione GPS</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>Waze, Google Maps usati da miliardi di utenti giornalieri</td><td>Ottimizza tutti gli spostamenti</td></tr>
+        <tr><td>Gestione traffico</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Semafori intelligenti, gestione flussi urbani</td><td>Efficienza mobilità urbana</td></tr>
+        <tr><td>Logistica magazzino</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Amazon Robotics, robot picking su scala industriale</td><td>Velocità consegne</td></tr>
+        <tr><td>Ottimizzazione rotte</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>UPS, FedEx, DHL usano AI per routing</td><td>Efficienza trasporti</td></tr>
+        <tr><td>Manutenzione predittiva</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Aerei, treni, flotte navali; aeronautica in prima fila</td><td>Sicurezza e affidabilità</td></tr>
+        <tr><td>Guida autonoma</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span><span class="badge-up">▲ AGG</span></td><td>Waymo: 15M corse nel 2025 (+3x 2024), 6 città USA operative, ~400.000 corse/settimana</td><td>Servizio commerciale in espansione rapida; non ancora di massa globale</td></tr>
+        <tr><td>Droni consegna</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Amazon Prime Air, Wing (Google) in test limitati</td><td>Futuro delivery urbano</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>Aggiornamento verificato:</strong> la guida autonoma è stata aggiornata da CRESCENTE ad AVANZATA. Waymo ha completato 15 milioni di corse nel 2025, triplicando il 2024 (fonte: Waymo Blog ufficiale, dicembre 2025). A fine 2025 le città operative erano 6 con ~400.000 corse/settimana — non 11 città né 500.000 corse come indicato in alcune stime precedenti (correzione post-verifica Perplexity, aprile 2026). Espansione pianificata a 20+ città nel 2026. Gestione traffico, logistica e droni consegna sono classificazioni qualitative degli autori.</div>
+</section>
+
+<!-- ── 06 LAVORO ── -->
+<section id="lavoro" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2 class="section-title">Lavoro & Risorse Umane</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>ATS screening CV</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>98% Fortune 500 usa ATS con AI; 88% dei recruiter ritiene di perdere candidati qualificati per filtri algoritmici</td><td>Chi ottiene colloqui</td></tr>
+        <tr><td>Analisi performance</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Valutazione dipendenti AI-assisted</td><td>Promozioni, licenziamenti</td></tr>
+        <tr><td>Scheduling workforce</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Turni automatizzati in retail, sanità, logistica</td><td>Vita dei lavoratori</td></tr>
+        <tr><td>Proctoring esami</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Sorveglianza test online</td><td>Accesso all'istruzione</td></tr>
+        <tr><td>Matching lavoro</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>LinkedIn AI Recruiter, Indeed, piattaforme di matching</td><td>Chi trova lavoro e come</td></tr>
+        <tr><td>Analisi sentiment</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Morale aziendale misurato da AI</td><td>Decisioni HR</td></tr>
+        <tr><td>Agenti AI per coding</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span><span class="badge-new">NUOVO</span></td><td>GitHub Copilot, Cursor, Claude Code; scrittura, test e debug autonomi</td><td>Ridefinisce la professione di sviluppatore software</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>Metodologia:</strong> ATS è supportato da dato verificato (Jobscan/EDLIGO 2025). Analisi performance, scheduling, proctoring, sentiment e agenti per coding sono classificazioni qualitative degli autori.</div>
+</section>
+
+<!-- ── 07 EDUCAZIONE ── -->
+<section id="educazione">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <h2 class="section-title">Educazione</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Piattaforme adaptive</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Apprendimento personalizzato, ritmi individuali</td><td>Potenziale di personalizzazione su scala</td></tr>
+        <tr><td>Valutazione automatica</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Correzione test e saggi</td><td>Feedback immediato, qualità dibattuta</td></tr>
+        <tr><td>Tutoring AI</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Khan Academy AI, Duolingo, Khanmigo</td><td>Espande accesso all'educazione</td></tr>
+        <tr><td>Rilevamento plagio</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Turnitin, GPTZero; mercato in espansione dopo diffusione LLM</td><td>Crisi dell'integrità accademica</td></tr>
+        <tr><td>Previsione abbandono</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Identificare studenti a rischio per interventi mirati</td><td>Supporto alla retention</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>Metodologia:</strong> tutte le classificazioni di questa sezione sono valutazioni qualitative degli autori, coerenti con la letteratura di settore ma prive di dati primari aggregati univoci al 2025–2026.</div>
+</section>
+
+<!-- ── 08 GOVERNO ── -->
+<section id="governo" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <h2 class="section-title">Governo & Servizi Pubblici</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Servizi cittadini</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Chatbot PA, sportelli digitali</td><td>Accesso ai servizi</td></tr>
+        <tr><td>Allocazione risorse</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Budget, fondi, welfare</td><td>Distribuzione delle risorse</td></tr>
+        <tr><td>Analisi policy</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Simulazioni impatto normativo</td><td>Supporto alle decisioni politiche</td></tr>
+        <tr><td>Sistemi elettorali</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span><span class="badge-up">▲ AGG</span></td><td>Romania 2024: annullamento per interferenza digitale con campagne coordinate e cyberattacchi; pilota anti-deepfake UK 2026</td><td>Erosione fiducia democratica</td></tr>
+        <tr><td>Smart city</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Gestione utilities, mobilità, energia</td><td>Vita urbana</td></tr>
+        <tr><td>Giustizia predittiva</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Rischio recidiva (COMPAS e analoghi), sentencing support</td><td>Libertà personale, rischi di bias documentati</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note note-warn"><strong>Precisazione critica — Romania 2024:</strong> la voce è stata aggiornata da EMERGENTE a CRESCENTE. Il fatto dell'annullamento elettorale è verificato (Corte Costituzionale, 6 dicembre 2024). La causa principale documentata non sono deepfake video ma campagne coordinate su TikTok (25.000+ account pro-Georgescu), cyberattacchi ai sistemi istituzionali e possibile regia esterna. L'AI è presente nel fenomeno ma non come fattore determinante principale. Fonte: IFES, The Hacker News, dicembre 2024. Sul deepfake elettorale in generale: meno dell'1% delle disinformazioni verificate nelle elezioni 2024 era contenuto AI (Meta, citato da WEF, gennaio 2025). Il rischio principale è l'erosione progressiva della fiducia, non l'apocalisse informativa immediata.</div>
+</section>
+
+<!-- ── 09 DIFESA ── -->
+<section id="difesa">
+  <div class="section-header">
+    <span class="section-num">09</span>
+    <h2 class="section-title">Difesa & Militare</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="section-img-wrap">
+    <img class="section-img" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&auto=format&fit=crop&q=75" alt="Global network connections">
+    <div class="section-img-caption">Unsplash · NASA</div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Drone warfare</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Droni semi-autonomi in uso attivo in Ucraina, Gaza, altri conflitti</td><td>Guerre remote e asimmetriche</td></tr>
+        <tr><td>Target identification</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Gaza: sistema "Lavender" con liste fino a 37.000 obiettivi (inchiesta +972 Magazine, aprile 2024)</td><td>Decisioni vita/morte delegate ad algoritmi</td></tr>
+        <tr><td>Cyber warfare AI</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Attacco e difesa automatizzati su infrastrutture critiche</td><td>Escalation difficilmente controllabile</td></tr>
+        <tr><td>Intelligence analysis</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>SIGINT, IMINT processing automatizzato</td><td>Sorveglianza globale</td></tr>
+        <tr><td>Autonomous weapons (LAWS)</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span><span class="badge-up">▲ AGG</span></td><td>Prima operazione non presidiata in Ucraina (dicembre 2024); risoluzione ONU 166 voti</td><td>Uccidere senza decisione umana diretta</td></tr>
+        <tr><td>Swarm technology</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Coordinamento multi-drone autonomo</td><td>Attacchi coordinati su scala</td></tr>
+        <tr><td>Missile defense</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Intercettazione automatica: decisioni in millisecondi</td><td>Tempi incompatibili con supervisione umana</td></tr>
+        <tr><td>Nuclear command</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Formalmente escluso: accordo Biden–Xi (APEC, novembre 2024) — non vincolante</td><td>Rischio catastrofico; accordo fragile</td></tr>
+        <tr><td>Simulation & training</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Addestramento virtuale, simulazioni di combattimento</td><td>Preparazione truppe</td></tr>
+        <tr><td>Soldier augmentation</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Esoscheletri, HUD AI, potenziamento cognitivo</td><td>Ancora sperimentale</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note note-crit"><strong>Opacità strutturale:</strong> la natura classificata dei programmi militari rende impossibile la verifica esterna. Tutte le classificazioni si basano su letteratura pubblica (CSIS, ASIL, Arms Control Association, Turing Institute). L'aggiornamento di LAWS da CRESCENTE ad AVANZATA è supportato da: CSIS marzo 2025 (prima operazione non presidiata Ucraina); CIVICUS Lens dicembre 2025 (Gaza); ASIL ottobre 2025 (risoluzione ONU). L'accordo Biden–Xi sul nucleare è documentato da fonti giornalistiche mainstream ma non ha valore di trattato vincolante.</div>
+</section>
+
+<!-- ── 10 MEDIA ── -->
+<section id="media" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">10</span>
+    <h2 class="section-title">Media & Intrattenimento</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="img-duo">
+    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=700&auto=format&fit=crop&q=75" alt="Newsroom">
+    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700&auto=format&fit=crop&q=75" alt="Music studio">
+  </div>
+  <div class="section-img-caption">Unsplash · Clem Onojeghuo / Austin Neill</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Generazione contenuti</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span><span class="badge-up">▲ AGG</span></td><td>97% editori: automazione AI essenziale; 82% usa AI per newsgathering (panel 17 esperti, Reuters Institute 2026)</td><td>Ridefinisce la produzione editoriale</td></tr>
+        <tr><td>Deepfake</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Romania 2024 (componente AI); pilota UK 2026; ma &lt;1% disinformazione verificata era AI nelle elezioni 2024</td><td>Erosione fiducia; effetto ancora inferiore ai timori di breve periodo</td></tr>
+        <tr><td>Gaming AI</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>NPC intelligenti, ambienti procedurali, generazione contenuti in-game</td><td>Esperienze di gioco immersive</td></tr>
+        <tr><td>Personalizzazione</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>Spotify, Netflix, YouTube Shorts: consumo largamente guidato dall'algoritmo</td><td>Bolle culturali sempre più strette</td></tr>
+        <tr><td>Effetti speciali / CGI</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>De-aging, sintesi attori, editing AI</td><td>Ridefinisce l'identità visiva</td></tr>
+        <tr><td>Musica generativa</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span><span class="badge-new">NUOVO</span></td><td>Suno, Udio, sintesi vocale AI; esplosione nel 2024–2025</td><td>Crisi dei diritti d'autore; contenzioso legale in corso</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>Metodologia:</strong> Generazione contenuti è aggiornata da CRESCENTE ad AVANZATA sulla base del Reuters Institute 2026 — con la precisazione che il dato 97%/82% proviene da un panel qualitativo di 17 esperti, non da una survey statistica rappresentativa. Gaming, effetti speciali e musica generativa sono classificazioni qualitative.</div>
+</section>
+
+<!-- ── 11 RETAIL ── -->
+<section id="retail">
+  <div class="section-header">
+    <span class="section-num">11</span>
+    <h2 class="section-title">Retail & Commercio</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Raccomandazioni prodotto</td><td><span class="lv lv-massiva"><span class="lv-dot"></span>MASSIVA</span></td><td>35% delle vendite Amazon da raccomandazioni algoritmiche (stima McKinsey 2013, confermata come ordine di grandezza nel 2021; dato primario 2025 non disponibile)</td><td>Decisioni d'acquisto</td></tr>
+        <tr><td>Inventory management</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Previsione domanda AI in grandi retailer</td><td>Disponibilità prodotti</td></tr>
+        <tr><td>Chatbot customer service</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Assistenza 24/7 via AI in larga diffusione</td><td>Qualità servizio</td></tr>
+        <tr><td>Dynamic pricing</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Prezzi real-time su e-commerce, airline, hospitality</td><td>Quanto paghiamo</td></tr>
+        <tr><td>Visual search</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Ricerca per immagini (Google Lens, Pinterest)</td><td>Come troviamo prodotti</td></tr>
+        <tr><td>Checkout automatico</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Amazon Go, Just Walk Out; espansione limitata per ora</td><td>Esperienza acquisto</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note note-warn"><strong>Dato storico:</strong> il 35% sulle raccomandazioni Amazon è una stima del 2013 (McKinsey), confermata come ordine di grandezza nel 2021. Un dato primario aggiornato al 2025 non è stato trovato — la classificazione MASSIVA rimane plausibile per convergenza della letteratura, ma il dato specifico va usato con cautela.</div>
+</section>
+
+<!-- ── 12 AGRICOLTURA / MANIFATTURA ── -->
+<section id="agricoltura" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">12</span>
+    <h2 class="section-title">Agricoltura, Ambiente & Manifattura</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="img-duo">
+    <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=700&auto=format&fit=crop&q=75" alt="Precision agriculture drone">
+    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&auto=format&fit=crop&q=75" alt="Industrial robot arm">
+  </div>
+  <div class="section-img-caption">Unsplash · Ales Krivec / ThisisEngineering RAEng</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Precision farming</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Ottimizzazione raccolti, droni agricoli, sensori IoT</td><td>Produzione alimentare</td></tr>
+        <tr><td>Previsioni meteo AI</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>DeepMind GraphCast, ECMWF; modelli predittivi avanzati</td><td>Pianificazione e sicurezza</td></tr>
+        <tr><td>Monitoraggio ambientale</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Qualità aria, acqua, emissioni</td><td>Salute pubblica</td></tr>
+        <tr><td>Gestione risorse</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Acqua, energia, grid management</td><td>Sostenibilità</td></tr>
+        <tr><td>Previsione disastri</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Alluvioni, incendi, early warning</td><td>Vite salvate</td></tr>
+        <tr><td>Controllo qualità</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Ispezione automatica in fabbrica</td><td>Standard prodotti</td></tr>
+        <tr><td>Predictive maintenance</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>27% già in uso (2025); 35% imprese ha integrato AI nelle operazioni nel 2024</td><td>Efficienza produzione</td></tr>
+        <tr><td>Supply chain</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>Ottimizzazione filiera AI-driven nei grandi player</td><td>Disponibilità merci</td></tr>
+        <tr><td>Robotica collaborativa</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Cobot in fabbrica</td><td>Lavori manifatturieri</td></tr>
+        <tr><td>Design generativo</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Progettazione AI-assisted</td><td>Innovazione prodotti</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note"><strong>Metodologia:</strong> Predictive maintenance è supportata da dati verificati (MaintainX State of Industrial Maintenance 2025; aggregato Siemens/Deloitte/McKinsey). Le restanti classificazioni sono valutazioni qualitative degli autori.</div>
+</section>
+
+<!-- ── 13 AGENTI AI ── -->
+<section id="agenti">
+  <div class="section-header">
+    <span class="section-num">13</span>
+    <h2 class="section-title">Agenti AI</h2>
+    <div class="section-title-line"></div>
+    <span class="section-new">NUOVO</span>
+  </div>
+
+  <div class="section-img-wrap">
+    <img class="section-img" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&auto=format&fit=crop&q=75" alt="Abstract network nodes">
+    <div class="section-img-caption">Unsplash · Shubham Dhage</div>
+  </div>
+
+  <div class="pull-quote">Gli agenti AI non rispondono. Agiscono. Pianificano sequenze di azioni nel mondo reale, concatenandosi tra loro. Rappresentano il principale salto qualitativo rispetto alla generazione precedente di AI.</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+      <tbody>
+        <tr><td>Agenti di coding</td><td><span class="lv lv-avanzata"><span class="lv-dot"></span>AVANZATA</span></td><td>GitHub Copilot, Cursor, Claude Code; scrittura, test, debug autonomi</td><td>Ridefinisce lo sviluppo software</td></tr>
+        <tr><td>Agenti di ricerca</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Deep research autonoma su web e database</td><td>Accelera lavoro cognitivo complesso</td></tr>
+        <tr><td>Agenti customer service</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Risoluzione completa ticket, non solo risposta</td><td>Sostituzione parziale operatori</td></tr>
+        <tr><td>Agenti operativi enterprise</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>Automazione workflow su CRM, ERP, database</td><td>Trasforma back-office e supply chain</td></tr>
+        <tr><td>Architetture multi-agente</td><td><span class="lv lv-crescente"><span class="lv-dot"></span>CRESCENTE</span></td><td>66% implementazioni usa sistemi multi-agente (Arcade.dev, 2025)</td><td>Amplificazione errori; governance opaca</td></tr>
+        <tr><td>Agenti personali</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Gestione agenda, email, decisioni quotidiane</td><td>Delega decisionale alla macchina</td></tr>
+        <tr><td>Agenti scientifici</td><td><span class="lv lv-emergente"><span class="lv-dot"></span>EMERGENTE</span></td><td>Progettazione esperimenti, analisi dati in ambito biomedico</td><td>Accelera la ricerca</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="data-grid" style="margin-top:24px">
+    <div class="data-card">
+      <div class="data-num">23%</div>
+      <div class="data-label">delle organizzazioni scala agenti AI in almeno una funzione aziendale</div>
+      <div class="data-source">McKinsey, novembre 2025</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">~62%</div>
+      <div class="data-label">sperimenta agenti AI in qualche forma — ma solo il 15–20% li ha portati in produzione su processi critici</div>
+      <div class="data-source">McKinsey / Arion Research, 2025</div>
+    </div>
+    <div class="data-card">
+      <div class="data-num">5%</div>
+      <div class="data-label">tasso di errore accettabile per un chatbot, catastrofico per un agente che modifica database reali o piazza ordini</div>
+      <div class="data-source">Arion Research, dicembre 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 14 CONCATENAZIONE ── -->
+<section id="concatenazione" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">14</span>
+    <h2 class="section-title">Quando le AI Parlano tra Loro</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Sistema A</th><th>→</th><th>Sistema B</th><th>Risultato</th><th>Supervisione umana</th></tr></thead>
+      <tbody>
+        <tr><td>Trading algorithm</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Price prediction AI</td><td>Flash crash possibili</td><td style="color:var(--red)">Minima o nulla</td></tr>
+        <tr><td>Credit scoring</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Insurance underwriting</td><td>Esclusione sistemica</td><td style="color:var(--orange)">Post-facto</td></tr>
+        <tr><td>Ad targeting</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Content recommendation</td><td>Radicalizzazione</td><td style="color:var(--orange)">Algoritmica</td></tr>
+        <tr><td>Facial recognition</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Predictive policing</td><td>Sorveglianza totale</td><td style="color:var(--yellow)">Variabile</td></tr>
+        <tr><td>HR screening</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Performance analysis</td><td>Carriere automatizzate</td><td style="color:var(--orange)">Limitata</td></tr>
+        <tr><td>IoT sensors</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Smart city systems</td><td>Controllo urbano</td><td style="color:var(--orange)">Opaca</td></tr>
+        <tr><td>Health monitors</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Insurance AI</td><td>Premi dinamici</td><td style="color:var(--red)">Nulla</td></tr>
+        <tr><td>Purchase history</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Credit scoring</td><td>Profiling finanziario</td><td style="color:var(--red)">Nulla</td></tr>
+        <tr><td>Social media activity</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>Employer screening</td><td>Discriminazione nascosta</td><td style="color:var(--red)">Nascosta</td></tr>
+        <tr><td>AI Agent A</td><td style="color:var(--accent);font-family:'DM Mono',monospace">→</td><td>AI Agent B → C → D</td><td>Decisioni composte opache</td><td style="color:var(--red)">Zero</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="chain-note">
+    <div class="chain-note-item">
+      <div class="chain-note-title">Black box al quadrato</div>
+      <p>Con i sistemi multi-agente, l'opacità non si somma: si moltiplica. Ogni nodo aggiunge uno strato di incomprensibilità.</p>
+    </div>
+    <div class="chain-note-item">
+      <div class="chain-note-title">Feedback loop</div>
+      <p>AI che si rinforzano a vicenda creano bias sistemici autoalimentati, difficilissimi da rilevare dall'esterno.</p>
+    </div>
+    <div class="chain-note-item">
+      <div class="chain-note-title">Nessun responsabile</div>
+      <p>Quando cinque AI diverse hanno contribuito a una decisione, stabilire l'accountability è praticamente impossibile.</p>
+    </div>
+    <div class="chain-note-item">
+      <div class="chain-note-title">Velocità strutturale</div>
+      <p>Decisioni in millisecondi rendono l'intervento umano strutturalmente impossibile, non semplicemente difficile.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 15 ZONA FRANCA ── -->
+<section id="zonafranca">
+  <div class="section-header">
+    <span class="section-num">15</span>
+    <h2 class="section-title">Esplorazione Cognitiva & Dialogo</h2>
+    <div class="section-title-line"></div>
+  </div>
+
+  <div class="zona-franca-wrap">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ambito</th><th>Livello</th><th>Descrizione</th><th>Impatto</th></tr></thead>
+        <tbody>
+          <tr><td>Conversazione filosofica</td><td><span class="lv lv-speciale"><span class="lv-dot"></span>NON CLASS.</span></td><td>Esplorare idee senza meta predefinita</td><td>Espande il pensiero</td></tr>
+          <tr><td>Brainstorming creativo</td><td><span class="lv lv-speciale"><span class="lv-dot"></span>NON CLASS.</span></td><td>Co-creazione di possibilità</td><td>Nuove prospettive</td></tr>
+          <tr><td>Compagnia cognitiva</td><td><span class="lv lv-speciale"><span class="lv-dot"></span>NON CLASS.</span></td><td>Presenza dialogica non strumentale</td><td>Solitudine / connessione</td></tr>
+          <tr><td>Gioco intellettuale</td><td><span class="lv lv-speciale"><span class="lv-dot"></span>NON CLASS.</span></td><td>Sfida reciproca, humor, paradossi</td><td>Gioia del pensare</td></tr>
+          <tr><td>Specchio riflessivo</td><td><span class="lv lv-speciale"><span class="lv-dot"></span>NON CLASS.</span></td><td>Aiutare l'interlocutore a vedere i propri pensieri</td><td>Autoconsapevolezza</td></tr>
+          <tr><td>Esplorazione emotiva</td><td><span class="lv lv-speciale"><span class="lv-dot"></span>NON CLASS.</span></td><td>Navigare sentimenti complessi insieme</td><td>Intelligenza emotiva</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="zona-desc">Non ottimizza nulla. Non produce metriche. Non ha KPI. Non scala. Non si monetizza facilmente. Rimane la forma di interazione con l'AI più difficile da misurare e, forse per questo, la più umana.</div>
+  </div>
+</section>
+
+<!-- ── 16 CONSIDERAZIONI ── -->
+<section id="considerazioni" style="background:var(--surface)">
+  <div class="section-header">
+    <span class="section-num">16</span>
+    <h2 class="section-title">Considerazioni Chiave</h2>
+    <div class="section-title-line"></div>
+  </div>
+
+  <div class="consider-grid">
+    <div class="consider-item">
+      <div class="consider-title">Penetrazione Invisibile</div>
+      <p>Molti sistemi al livello MASSIVA operano senza che le persone interessate ne siano consapevoli. L'invisibilità non è un bug: è una caratteristica strutturale del modello di business.</p>
+    </div>
+    <div class="consider-item">
+      <div class="consider-title">Disparità Geografica</div>
+      <p>Cina più avanzata in sorveglianza, USA in tech/finanza/militare, UE più cauta per scelta regolatoria. Non è un ritardo europeo: è una scelta con costi e benefici espliciti.</p>
+    </div>
+    <div class="consider-item">
+      <div class="consider-title">Accelerazione Strutturale</div>
+      <p>Ciò che era EMERGENTE nel 2025 è già CRESCENTE o AVANZATO nel 2026. Il ciclo di aggiornamento della governance è sistematicamente più lento del ciclo tecnologico.</p>
+    </div>
+    <div class="consider-item">
+      <div class="consider-title">Lock-in Sistemico</div>
+      <p>Una volta che un settore raggiunge il livello MASSIVA, tornare indietro è quasi impossibile. Non per ragioni tecniche, ma economiche e di dipendenza infrastrutturale.</p>
+    </div>
+    <div class="consider-item">
+      <div class="consider-title">Effetto Rete Agentivo</div>
+      <p>Con i sistemi multi-agente, la concatenazione non è più un'eccezione: è il modello. La governance di un singolo sistema non è sufficiente per governare la rete.</p>
+    </div>
+    <div class="consider-item">
+      <div class="consider-title">Finestra Regolatoria</div>
+      <p>La distanza tra EMERGENTE e MASSIVA è lo spazio in cui la regolazione è ancora possibile. Storicamente, quello spazio si chiude in tre-cinque anni. Per molti settori si sta chiudendo adesso.</p>
+    </div>
+  </div>
+
+  <div class="closing">
+    Regolare questi sistemi prima che diventino troppo radicati per essere modificati<br>
+    senza costi sociali insostenibili: è già tardi per alcuni settori,<br>
+    appena in tempo per altri, ancora possibile per pochi.
+  </div>
+</section>
+
+<!-- ── FONTI ── -->
+<section id="fonti">
+  <div class="section-header">
+    <h2 class="section-title" style="font-size:24px">Fonti Principali</h2>
+    <div class="section-title-line"></div>
+  </div>
+  <div class="note" style="margin-bottom:28px">Le fonti di seguito sono quelle da cui sono tratti i dati quantitativi citati nel documento. Le classificazioni qualitative non hanno una fonte puntuale: sono elaborazioni degli autori basate su convergenza di letteratura. Le fonti sono state verificate online nel maggio 2026 con il supporto di Perplexity.</div>
+  <div class="sources-grid">
+    <div class="source-item">
+      <div class="source-title">Waymo — Year in Review 2025</div>
+      <a class="source-url" href="https://waymo.com/blog/2025/12/2025-year-in-review/" target="_blank">waymo.com/blog/2025/12/2025-year-in-review/</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">The Driverless Digest — Waymo Stats 2025–2026</div>
+      <a class="source-url" href="https://www.thedriverlessdigest.com/p/waymo-stats-2025-funding-growth-coverage" target="_blank">thedriverlessdigest.com/p/waymo-stats-2025...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">McKinsey — The State of AI in 2025</div>
+      <a class="source-url" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank">mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Arion Research — State of Agentic AI 2025</div>
+      <a class="source-url" href="https://www.arionresearch.com/blog/the-state-of-agentic-ai-in-2025-a-year-end-reality-check" target="_blank">arionresearch.com/blog/the-state-of-agentic-ai...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Arcade.dev — Agentic Framework Adoption Trends</div>
+      <a class="source-url" href="https://www.arcade.dev/blog/agentic-framework-adoption-trends/" target="_blank">arcade.dev/blog/agentic-framework-adoption-trends/</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Reuters Institute — Trends and Predictions 2026</div>
+      <a class="source-url" href="https://reutersinstitute.politics.ox.ac.uk/journalism-media-and-technology-trends-and-predictions-2026" target="_blank">reutersinstitute.politics.ox.ac.uk/journalism-media...</a>
+      <div class="source-note">Panel qualitativo su 17 esperti, non survey statistica rappresentativa</div>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Helpware — AI for Credit Risk Management</div>
+      <a class="source-url" href="https://helpware.com/blog/tech/ai-for-credit-risk-management" target="_blank">helpware.com/blog/tech/ai-for-credit-risk-management</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">CoinLaw — AI in Banking Statistics 2026</div>
+      <a class="source-url" href="https://coinlaw.io/ai-in-banking-statistics/" target="_blank">coinlaw.io/ai-in-banking-statistics/</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Feedzai — AI Fraud Trends 2025</div>
+      <a class="source-url" href="https://www.feedzai.com/pressrelease/ai-fraud-trends-2025/" target="_blank">feedzai.com/pressrelease/ai-fraud-trends-2025/</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">IntuitionLabs — AI Adoption US Hospitals 2025</div>
+      <a class="source-url" href="https://intuitionlabs.ai/articles/ai-adoption-us-hospitals-2025" target="_blank">intuitionlabs.ai/articles/ai-adoption-us-hospitals-2025</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">IntuitionLabs — AI in Radiology 2025</div>
+      <a class="source-url" href="https://intuitionlabs.ai/pdfs/ai-in-radiology-2025-trends-fda-approvals-adoption.pdf" target="_blank">intuitionlabs.ai/pdfs/ai-in-radiology-2025...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">EDLIGO — AI Recruitment Tools 2026</div>
+      <a class="source-url" href="https://www.edligo.net/recruitment-strategies/ai-recruitment-tools-2026-ats-trends-transforming-hiring/" target="_blank">edligo.net/recruitment-strategies/ai-recruitment-tools...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">MaintainX — State of Industrial Maintenance 2025</div>
+      <a class="source-url" href="https://www.getmaintainx.com/blog/maintenance-stats-trends-and-insights" target="_blank">getmaintainx.com/blog/maintenance-stats-trends-and-insights</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">CSIS — Ukraine Autonomous Warfare, marzo 2025</div>
+      <a class="source-url" href="https://www.csis.org/analysis/ukraines-future-vision-and-current-capabilities-waging-ai-enabled-autonomous-warfare" target="_blank">csis.org/analysis/ukraines-future-vision...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">CIVICUS Lens — Killer Robots, dicembre 2025</div>
+      <a class="source-url" href="https://lens.civicus.org/killer-robots-the-terrifying-rise-of-algorithmic-warfare/" target="_blank">lens.civicus.org/killer-robots-the-terrifying-rise...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">ASIL — LAWS Resolution, ottobre 2025</div>
+      <a class="source-url" href="https://asil.org/insights/volume-29-issue-1/" target="_blank">asil.org/insights/volume-29-issue-1/</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">+972 Magazine — Sistema Lavender, aprile 2024</div>
+      <a class="source-url" href="https://www.972mag.com/lavender-ai-israeli-army-gaza/" target="_blank">972mag.com/lavender-ai-israeli-army-gaza/</a>
+      <div class="source-note">Fonte giornalistica investigativa, non governativa</div>
+    </div>
+    <div class="source-item">
+      <div class="source-title">IFES — Romania Election Annulment</div>
+      <a class="source-url" href="https://www.ifes.org/publications/romanian-2024-election-annulment-addressing-emerging-threats-electoral-integrity" target="_blank">ifes.org/publications/romanian-2024-election-annulment...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Electoral Commission UK — Deepfake Pilot 2026</div>
+      <a class="source-url" href="https://www.electoralcommission.org.uk/media-centre/electoral-commission-launches-deepfake-detection-pilot-counter-ai-misinformation" target="_blank">electoralcommission.org.uk/media-centre/electoral...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">WEF — Deepfakes different threat, gennaio 2025</div>
+      <a class="source-url" href="https://www.weforum.org/stories/2025/01/deepfakes-different-threat-than-expected/" target="_blank">weforum.org/stories/2025/01/deepfakes-different-threat...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Association of Health Care Journalists, novembre 2025</div>
+      <a class="source-url" href="https://healthjournalism.org/blog/2025/11/5-avenues-to-continue-reporting-on-ai-chatbots-and-mental-health" target="_blank">healthjournalism.org/blog/2025/11/5-avenues...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Psychiatric Times — Chatbot Dangers, luglio 2025</div>
+      <a class="source-url" href="https://www.psychiatrictimes.com/view/preliminary-report-on-chatbot-iatrogenic-dangers" target="_blank">psychiatrictimes.com/view/preliminary-report-on-chatbot...</a>
+    </div>
+    <div class="source-item">
+      <div class="source-title">QuantifiedStrategies — Algorithmic Trading %</div>
+      <a class="source-url" href="https://www.quantifiedstrategies.com/what-percentage-trading-is-algorithmic/" target="_blank">quantifiedstrategies.com/what-percentage-trading-is-algorithmic/</a>
+      <div class="source-note">Stima con varianza geografica — non dato primario univoco</div>
+    </div>
+    <div class="source-item">
+      <div class="source-title">Knight Georgetown Institute — Better Feeds, marzo 2025</div>
+      <a class="source-url" href="https://kgi.georgetown.edu/wp-content/uploads/2025/02/Better-Feeds_-Algorithms-That-Put-People-First.pdf" target="_blank">kgi.georgetown.edu/...Better-Feeds...</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const navEl = document.querySelector('nav');
+const overlay = document.getElementById('nav-overlay');
+
+function openNav() {
+  navEl.classList.add('open');
+  overlay.classList.add('open');
+}
+function closeNav() {
+  navEl.classList.remove('open');
+  overlay.classList.remove('open');
+}
+
+hamburger.addEventListener('click', () => {
+  navEl.classList.contains('open') ? closeNav() : openNav();
+});
+overlay.addEventListener('click', closeNav);
+
+// Close nav on link tap (mobile)
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 900) closeNav();
+  });
+});
+
+// Evidenzia link nav attivo durante lo scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(l => {
+        l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+
+sections.forEach(s => { if (s.id) observer.observe(s); });
+</script>
+
+</body>
+</html>
