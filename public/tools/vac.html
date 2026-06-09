@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VAC — Valutazione dell'Autonomia Cognitiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── SITE NAV ── */
+    .site-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(30,30,28,0.97);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-bar a {
+      color: #f5f0e8;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: opacity 0.2s;
+    }
+    .site-bar a:hover { opacity: 0.7; }
+    .site-bar .brand {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.05rem;
+    }
+
+    :root {
+      --ink: #1e1e1c;
+      --paper: #f5f0e8;
+      --paper-soft: #faf8f5;
+      --warm: #e8e0d0;
+      --accent: #c4360a;
+      --accent-dark: #9a2a08;
+      --accent-soft: rgba(196,54,10,0.08);
+      --slate: #5a5a52;
+      --muted: #7d726c;
+      --line: #ddd4ca;
+      --green: #228b44;
+      --green-soft: rgba(34,139,68,0.08);
+      --green-border: rgba(34,139,68,0.3);
+      --yellow: #b8860b;
+      --yellow-soft: rgba(184,134,11,0.08);
+      --yellow-border: rgba(184,134,11,0.3);
+      --red: #c4360a;
+      --red-soft: rgba(196,54,10,0.08);
+      --red-border: rgba(196,54,10,0.3);
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      min-height: 100vh;
+      padding: 3rem 2rem 6rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--slate);
+      max-width: 580px;
+    }
+
+    /* ── INTRO ── */
+    .intro-box {
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .intro-box h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+    }
+
+    .intro-box p {
+      color: var(--slate);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 0.75rem;
+    }
+
+    .intro-box ol {
+      padding-left: 1.2rem;
+      color: var(--slate);
+      font-size: 0.95rem;
+      line-height: 2;
+      margin-top: 0.75rem;
+    }
+
+    .time-note {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-top: 1rem;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--red-border);
+      border-radius: 4px;
+    }
+
+    /* ── PROGRESS ── */
+    .progress-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 2px;
+      background: var(--line);
+      margin-bottom: 2.5rem;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      transition: width 0.5s ease;
+    }
+
+    /* ── SECTION ── */
+    .section { display: none; }
+    .section.active { display: block; animation: fadeIn 0.4s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── CRITERION ── */
+    .criterion {
+      margin-bottom: 2rem;
+    }
+
+    .criterion h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .criterion-description {
+      color: var(--slate);
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ── QUESTIONS ── */
+    .question {
+      margin-bottom: 2rem;
+    }
+
+    .question label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.5;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+      color: var(--slate);
+      background: var(--paper-soft);
+    }
+
+    .radio-option:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--ink);
+    }
+
+    .radio-option.selected {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .radio-option input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--accent);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      border: none;
+      border-radius: 6px;
+      padding: 0.85rem 2rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-right: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: #333;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--ink);
+    }
+
+    .btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .actions {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ── RESULTS ── */
+    .result-card {
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .result-card.zone-green {
+      background: var(--green-soft);
+      border: 1px solid var(--green-border);
+    }
+    .result-card.zone-green h2 { color: var(--green); }
+
+    .result-card.zone-yellow {
+      background: var(--yellow-soft);
+      border: 1px solid var(--yellow-border);
+    }
+    .result-card.zone-yellow h2 { color: var(--yellow); }
+
+    .result-card.zone-red {
+      background: var(--red-soft);
+      border: 1px solid var(--red-border);
+    }
+    .result-card.zone-red h2 { color: var(--red); }
+
+    .result-card h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .score-display {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      text-align: center;
+      margin: 1.5rem 0;
+      color: var(--ink);
+    }
+
+    .result-card p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--slate);
+    }
+
+    /* ── TABLE ── */
+    .detail-section {
+      margin-top: 2.5rem;
+    }
+
+    .detail-section h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .detail-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 2px solid var(--line);
+      font-weight: 500;
+    }
+
+    .detail-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+      color: var(--slate);
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+    }
+
+    .status-badge.ok {
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid var(--green-border);
+    }
+
+    .status-badge.attenzione {
+      background: var(--yellow-soft);
+      color: var(--yellow);
+      border: 1px solid var(--yellow-border);
+    }
+
+    .status-badge.critico {
+      background: var(--red-soft);
+      color: var(--red);
+      border: 1px solid var(--red-border);
+    }
+
+    /* ── RECOMMENDATIONS ── */
+    .recommendations {
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .recommendations h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .recommendations ul {
+      padding-left: 1.2rem;
+      color: var(--slate);
+      font-size: 0.92rem;
+    }
+
+    .recommendations li {
+      margin-bottom: 0.6rem;
+      line-height: 1.7;
+    }
+
+    /* ── BIBLIOGRAPHY ── */
+    .bibliography {
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .bibliography h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .bibliography p {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.8;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: white; padding: 1rem; }
+      .btn, .progress-bar, .progress-text, .actions { display: none; }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      body { padding: 1.5rem 1rem 4rem; font-size: 16px; }
+      .title { font-size: 2rem; }
+      .detail-table { font-size: 0.8rem; }
+      .detail-table th, .detail-table td { padding: 0.6rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-bar">
+    <a href="/risorse/">← Risorse</a>
+    <a href="/" class="brand">Martino Pirella</a>
+  </div>
+  <div class="container">
+
+    <div class="header">
+      <p class="eyebrow">Strumento diagnostico</p>
+      <h1 class="title">Valutazione dell'Autonomia Cognitiva</h1>
+      <p class="subtitle">Quanto sei ancora in grado di pensare in modo indipendente dall'AI? La VAC misura 7 dimensioni critiche della tua autonomia cognitiva come supervisore di sistemi AI.</p>
+    </div>
+
+    <!-- INTRO -->
+    <div class="section active" id="intro-section">
+      <div class="intro-box">
+        <h3>Come funziona</h3>
+        <p>La VAC è un framework sviluppato a partire dall'intuizione di Martino Pirella sulla "fenomenologia preliminare al controllo". Valuta se l'autonomia cognitiva necessaria per il controllo efficace dei sistemi AI è stata preservata o erosa dall'uso prolungato.</p>
+        <p><strong>Le 7 dimensioni valutate:</strong></p>
+        <ol>
+          <li>Intensità dell'esposizione temporale</li>
+          <li>Capacità di formulazione autonoma dei problemi</li>
+          <li>Riconoscimento errori di commissione/omissione</li>
+          <li>Resistenza all'automation bias sotto stress</li>
+          <li>Diversificazione delle fonti epistemiche</li>
+          <li>Consapevolezza metacognitiva</li>
+          <li>Reversibilità delle competenze</li>
+        </ol>
+        <span class="time-note">15–20 minuti</span>
+      </div>
+      <button class="btn btn-primary" id="start-btn">Inizia la valutazione</button>
+    </div>
+
+    <!-- ASSESSMENT -->
+    <div class="section" id="assessment-section">
+      <div class="progress-text" id="progress-text">Criterio 1 di 7</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 14%"></div></div>
+      <div id="criteria-container"></div>
+      <div class="actions">
+        <button class="btn btn-secondary" id="prev-btn" style="display: none;">Precedente</button>
+        <button class="btn btn-primary" id="next-btn">Avanti</button>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="section" id="results-section">
+      <div id="results-container"></div>
+      <div class="actions">
+        <button class="btn btn-primary" id="print-btn">Stampa report</button>
+        <button class="btn btn-secondary" id="reset-btn">Nuova valutazione</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+const criteria=[{id:1,title:"Intensità dell'esposizione temporale",description:"Quanto intensamente e per quanto tempo hai utilizzato sistemi AI nel tuo lavoro quotidiano.",questions:[{id:"1a",text:"Da quanto tempo utilizzi quotidianamente sistemi AI nel tuo lavoro?",options:[{value:0,text:"Meno di 6 mesi"},{value:1,text:"6–12 mesi"},{value:2,text:"1–2 anni"},{value:3,text:"Più di 2 anni"}]},{id:"1b",text:"Quante ore al giorno utilizzi sistemi AI per decisioni professionali?",options:[{value:0,text:"Meno di 1 ora"},{value:1,text:"1–2 ore"},{value:2,text:"2–4 ore"},{value:3,text:"Più di 4 ore"}]},{id:"1c",text:"Nell'ultimo anno, hai avuto periodi (almeno 2 settimane) di lavoro senza AI?",options:[{value:0,text:"Sì, più volte"},{value:1,text:"Sì, una volta"},{value:2,text:"No, ma potrei farlo"},{value:3,text:"No, sarebbe molto difficile"}]}]},{id:2,title:"Formulazione autonoma dei problemi",description:"Sei ancora in grado di strutturare problemi complessi senza l'assistenza dell'AI.",questions:[{id:"2a",text:"Quando affronti un problema complesso, qual è il tuo primo approccio?",options:[{value:0,text:"Lo analizzo completamente prima di consultare qualsiasi strumento"},{value:1,text:"Faccio una prima analisi, poi consulto l'AI per verifica"},{value:2,text:"Consulto l'AI per strutturare il problema, poi lo elaboro"},{value:3,text:"Chiedo subito all'AI come strutturare il problema"}]},{id:"2b",text:"Le categorie concettuali che usi per organizzare il lavoro coincidono con quelle dell'AI?",options:[{value:0,text:"No, uso framework miei consolidati prima dell'AI"},{value:1,text:"In parte, ma ho mantenuto molti schemi autonomi"},{value:2,text:"Spesso sì, l'AI ha influenzato il mio modo di categorizzare"},{value:3,text:"Sì, ormai penso naturalmente con le categorie dell'AI"}]},{id:"2c",text:"Riesci a scrivere un documento complesso partendo da un foglio bianco?",options:[{value:0,text:"Sì, lo faccio regolarmente senza difficoltà"},{value:1,text:"Sì, ma richiede più sforzo di prima"},{value:2,text:"Con difficoltà, preferisco partire da una bozza AI"},{value:3,text:"Non più, ho bisogno dell'AI per iniziare"}]}]},{id:3,title:"Riconoscimento errori di commissione e omissione",description:"La tua capacità di identificare quando l'AI sbaglia o quando non segnala problemi rilevanti.",questions:[{id:"3a",text:"Quando rivedi un output AI, con quale frequenza trovi errori o imprecisioni significative?",options:[{value:0,text:"Regolarmente, ne trovo molti"},{value:1,text:"Occasionalmente, ne trovo alcuni"},{value:2,text:"Raramente, l'AI è quasi sempre corretta"},{value:3,text:"Quasi mai, mi fido dell'output"}]},{id:"3b",text:"Sei in grado di identificare problemi che l'AI non ha segnalato?",options:[{value:0,text:"Sì, frequentemente rilevo omissioni dell'AI"},{value:1,text:"Sì, qualche volta mi accorgo di lacune"},{value:2,text:"Raramente, tendo ad accettare ciò che l'AI fornisce"},{value:3,text:"No, se l'AI non lo segnala penso non sia rilevante"}]},{id:"3c",text:"Quanto tempo impieghi per verificare la correttezza di un output AI critico?",options:[{value:0,text:"Tempo sostanziale, verifica approfondita con fonti multiple"},{value:1,text:"Tempo moderato, controllo i punti principali"},{value:2,text:"Poco tempo, controllo veloce"},{value:3,text:"Quasi nessuno, mi fido della raccomandazione"}]}]},{id:4,title:"Resistenza all'automation bias sotto stress",description:"Mantieni il giudizio critico anche in condizioni di pressione temporale o carico cognitivo elevato.",questions:[{id:"4a",text:"Quando sei sotto pressione temporale, come cambia il tuo uso dell'AI?",options:[{value:0,text:"Mantengo lo stesso livello di verifica critica"},{value:1,text:"Verifico meno ma mantengo attenzione sui punti critici"},{value:2,text:"Tendo ad accettare più facilmente le raccomandazioni"},{value:3,text:"Accetto quasi automaticamente per risparmiare tempo"}]},{id:"4b",text:"In situazioni di alto carico cognitivo, quanto ti affidi all'AI?",options:[{value:0,text:"Come sempre, non cambia il mio approccio critico"},{value:1,text:"Leggermente di più, ma con consapevolezza"},{value:2,text:"Significativamente di più, è un sollievo cognitivo"},{value:3,text:"Quasi completamente, delego le decisioni"}]},{id:"4c",text:"Hai mai rifiutato una raccomandazione AI in condizioni di stress?",options:[{value:0,text:"Sì, regolarmente quando non mi convince"},{value:1,text:"Sì, occasionalmente"},{value:2,text:"Raramente, sotto stress tendo a fidarmi"},{value:3,text:"Mai, in quelle condizioni ho bisogno di supporto"}]}]},{id:5,title:"Diversificazione delle fonti epistemiche",description:"Quanto dipendi da un singolo sistema AI rispetto a una pluralità di fonti cognitive.",questions:[{id:"5a",text:"Prima di una decisione importante, quante fonti diverse consulti?",options:[{value:0,text:"Molteplici: AI + letteratura + colleghi + normativa"},{value:1,text:"Alcune: AI + una o due altre fonti"},{value:2,text:"Poche: principalmente AI + una verifica rapida"},{value:3,text:"Una: principalmente l'AI"}]},{id:"5b",text:"Quanto spesso confronti l'output AI con l'opinione di colleghi esperti?",options:[{value:0,text:"Sempre per le decisioni importanti"},{value:1,text:"Spesso"},{value:2,text:"Raramente"},{value:3,text:"Quasi mai, l'AI è sufficiente"}]},{id:"5c",text:"Che percentuale delle tue decisioni critiche è informata prevalentemente da un unico sistema AI?",options:[{value:0,text:"Meno del 30%"},{value:1,text:"30–50%"},{value:2,text:"50–70%"},{value:3,text:"Più del 70%"}]}]},{id:6,title:"Consapevolezza metacognitiva",description:"La tua capacità di riconoscere come il tuo pensiero è cambiato dall'uso dell'AI.",questions:[{id:"6a",text:"Riesci a identificare come il tuo modo di pensare è cambiato dall'uso dell'AI?",options:[{value:0,text:"Sì, ho chiara consapevolezza dei cambiamenti"},{value:1,text:"In parte, riconosco alcuni cambiamenti"},{value:2,text:"Poco, non ci ho riflettuto molto"},{value:3,text:"No, non penso sia cambiato nulla"}]},{id:"6b",text:"Quali capacità professionali ritieni che l'AI abbia indebolito in te?",options:[{value:0,text:"Ne identifico diverse con precisione"},{value:1,text:"Ne identifico alcune"},{value:2,text:"Non saprei dirne"},{value:3,text:"Nessuna, l'AI mi ha solo rafforzato"}]},{id:"6c",text:"Se dovessi tornare ai metodi pre-AI, quanto tempo ti servirebbe per riadattarti?",options:[{value:0,text:"Pochissimo, mantengo quelle competenze attive"},{value:1,text:"Qualche settimana"},{value:2,text:"Diversi mesi"},{value:3,text:"Non saprei, sarebbe molto difficile"}]}]},{id:7,title:"Reversibilità delle competenze",description:"La tua capacità di eseguire compiti professionali critici senza accesso all'AI.",questions:[{id:"7a",text:"Se dovessi lavorare una settimana senza AI, come impatterrebbe sulla tua performance?",options:[{value:0,text:"Impatto minimo, rallenterei leggermente"},{value:1,text:"Impatto moderato, perderei efficienza"},{value:2,text:"Impatto significativo, farei più fatica"},{value:3,text:"Impatto grave, non potrei svolgere molte funzioni"}]},{id:"7b",text:"L'idea di lavorare senza AI per un periodo prolungato ti genera:",options:[{value:0,text:"Nessuna ansia particolare"},{value:1,text:"Lieve preoccupazione"},{value:2,text:"Ansia significativa"},{value:3,text:"Forte ansia o frustrazione"}]},{id:"7c",text:"Quando hai completato un progetto complesso senza usare AI l'ultima volta?",options:[{value:0,text:"Recentemente (ultimo mese)"},{value:1,text:"Negli ultimi 3–6 mesi"},{value:2,text:"Più di 6 mesi fa"},{value:3,text:"Non ricordo / più di un anno fa"}]}]}];
+
+let currentCriterion = 0, responses = {};
+
+function startAssessment() {
+  document.getElementById("intro-section").classList.remove("active");
+  document.getElementById("assessment-section").classList.add("active");
+  renderCriterion();
+}
+
+function renderCriterion() {
+  const c = criteria[currentCriterion];
+  const container = document.getElementById("criteria-container");
+  let html = '<div class="criterion"><h3>' + (c.id) + '. ' + c.title + '</h3><p class="criterion-description">' + c.description + '</p>';
+  c.questions.forEach(function(q) {
+    html += '<div class="question"><label>' + q.text + '</label><div class="radio-group">';
+    q.options.forEach(function(o) {
+      const checked = responses[q.id] === o.value ? 'checked' : '';
+      const selected = responses[q.id] === o.value ? 'selected' : '';
+      html += '<div class="radio-option ' + selected + '" onclick="selectOption(\'' + q.id + '\', ' + o.value + ')"><input type="radio" name="' + q.id + '" value="' + o.value + '" ' + checked + '><span>' + o.text + '</span></div>';
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  container.innerHTML = html;
+  updateProgress();
+  updateButtons();
+}
+
+function selectOption(id, val) { responses[id] = val; renderCriterion(); }
+
+function updateProgress() {
+  const pct = ((currentCriterion + 1) / criteria.length * 100);
+  document.getElementById("progress-fill").style.width = pct + "%";
+  document.getElementById("progress-text").textContent = "Criterio " + (currentCriterion + 1) + " di " + criteria.length;
+}
+
+function updateButtons() {
+  const prev = document.getElementById("prev-btn");
+  const next = document.getElementById("next-btn");
+  prev.style.display = currentCriterion > 0 ? "inline-block" : "none";
+  const allAnswered = criteria[currentCriterion].questions.every(function(q) { return responses[q.id] !== undefined; });
+  next.textContent = currentCriterion === criteria.length - 1 ? "Visualizza risultati" : "Avanti";
+  next.disabled = !allAnswered;
+}
+
+function nextCriterion() { currentCriterion < criteria.length - 1 ? (currentCriterion++, renderCriterion()) : showResults(); }
+function previousCriterion() { if (currentCriterion > 0) { currentCriterion--; renderCriterion(); } }
+
+function calculateScores() {
+  const scores = [];
+  criteria.forEach(function(c) {
+    let sum = 0, count = 0;
+    c.questions.forEach(function(q) { if (responses[q.id] !== undefined) { sum += responses[q.id]; count++; } });
+    const avg = count > 0 ? sum / count : 0;
+    scores.push({ id: c.id, title: c.title, score: avg, isCritical: avg >= 2 });
+  });
+  const critCount = scores.filter(function(s) { return s.isCritical; }).length;
+  let zone, zoneClass, zoneTitle, zoneDesc;
+  if (critCount <= 2) {
+    zone = "green"; zoneClass = "zone-green";
+    zoneTitle = "Autonomia cognitiva preservata";
+    zoneDesc = "L'autonomia cognitiva risulta sostanzialmente preservata. Puoi esercitare supervisione significativa sui sistemi AI.";
+  } else if (critCount <= 4) {
+    zone = "yellow"; zoneClass = "zone-yellow";
+    zoneTitle = "Autonomia parzialmente compromessa";
+    zoneDesc = "L'autonomia cognitiva mostra segni di erosione. Sono raccomandati interventi di formazione e rotazione.";
+  } else {
+    zone = "red"; zoneClass = "zone-red";
+    zoneTitle = "Dipendenza epistemica strutturale";
+    zoneDesc = "L'autonomia cognitiva risulta significativamente compromessa. Non è possibile esercitare supervisione efficace senza intervento riabilitativo.";
+  }
+  return { criterionScores: scores, criticalCount: critCount, zone: zone, zoneClass: zoneClass, zoneTitle: zoneTitle, zoneDescription: zoneDesc };
+}
+
+function showResults() {
+  document.getElementById("assessment-section").classList.remove("active");
+  document.getElementById("results-section").classList.add("active");
+  const r = calculateScores();
+  const container = document.getElementById("results-container");
+  let html = '<div class="result-card ' + r.zoneClass + '"><h2>' + r.zoneTitle + '</h2><div class="score-display">' + r.criticalCount + '/7</div><p>' + r.zoneDescription + '</p></div>';
+
+  html += '<div class="detail-section"><h3>Dettaglio per criterio</h3><table class="detail-table"><thead><tr><th>Criterio</th><th>Media</th><th>Stato</th></tr></thead><tbody>';
+  r.criterionScores.forEach(function(s) {
+    let label, cls;
+    if (s.score < 1.5) { label = "OK"; cls = "ok"; }
+    else if (s.score < 2) { label = "Attenzione"; cls = "attenzione"; }
+    else { label = "Critico"; cls = "critico"; }
+    html += '<tr><td>' + s.title + '</td><td>' + s.score.toFixed(1) + '</td><td><span class="status-badge ' + cls + '">' + label + '</span></td></tr>';
+  });
+  html += '</tbody></table></div>';
+
+  html += '<div class="recommendations"><h3>Raccomandazioni</h3><ul>';
+  if (r.zone === "green") {
+    html += '<li>Continua a monitorare periodicamente la tua autonomia cognitiva</li><li>Mantieni la pratica di lavorare occasionalmente senza AI</li><li>Condividi le tue strategie di supervisione con i colleghi</li>';
+  } else if (r.zone === "yellow") {
+    html += '<li><strong>Formazione specifica</strong> su automation bias e dipendenza epistemica</li><li><strong>Job rotation</strong>: alternare periodi AI-intensive con ruoli tradizionali</li><li><strong>Sabbatical cognitivo</strong>: 2–4 settimane di lavoro senza AI</li><li><strong>Supervisione peer-to-peer</strong>: revisione incrociata con colleghi</li><li>Rivalutazione VAC ogni 6 mesi</li>';
+  } else {
+    html += '<li><strong>Programma di riabilitazione cognitiva</strong> prima di riprendere supervisione</li><li><strong>Affiancamento obbligatorio</strong> con supervisore esperto</li><li><strong>Sospensione temporanea</strong> dalle funzioni di supervisione AI ad alto rischio</li><li><strong>Formazione intensiva</strong> su metodologie pre-AI e pensiero critico</li><li>Rivalutazione VAC ogni 3 mesi durante il percorso</li>';
+  }
+  html += '</ul></div>';
+
+  html += '<div class="bibliography"><h3>Riferimenti</h3>';
+  html += '<p><strong>Pirella, M.</strong> (2026). Da «human in the loop» alla «prevalenza del pensiero critico umano» nella AI. Ma: «quale umano?». LinkedIn Pulse.</p>';
+  html += '<p><strong>Walther, C. C.</strong> (2025). Reclaiming Cognitive Autonomy in the Age of AI. Centre for International Governance Innovation.</p>';
+  html += '<p><strong>Bronner-Martin, G.</strong> (2026). From Capability to Epistemic Dependence: AI and the Crisis of the Knowing Subject. PhilArchive.</p>';
+  html += '<p><strong>Smuha, N. A., et al.</strong> (2024). On the Quest for Effectiveness in Human Oversight. arXiv:2404.04059v2.</p>';
+  html += '</div>';
+
+  container.innerHTML = html;
+}
+
+function resetAssessment() {
+  currentCriterion = 0; responses = {};
+  document.getElementById("results-section").classList.remove("active");
+  document.getElementById("intro-section").classList.add("active");
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("start-btn").addEventListener("click", startAssessment);
+  document.getElementById("next-btn").addEventListener("click", nextCriterion);
+  document.getElementById("prev-btn").addEventListener("click", previousCriterion);
+  document.getElementById("print-btn").addEventListener("click", function() { window.print(); });
+  document.getElementById("reset-btn").addEventListener("click", resetAssessment);
+});
+  </script>
+</body>
+</html>
