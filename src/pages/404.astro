@@ -63,12 +63,8 @@ import Base from '../layouts/Base.astro';
     const input = document.getElementById('search-input');
     const resultsDiv = document.getElementById('search-results');
 
-    // Auto-cerca da URL path
-    const path = window.location.pathname.replace(/\//g, ' ').replace(/-/g, ' ').trim();
-    if (path) {
-      input.value = path;
-      search(path);
-    }
+    // Focus sul campo di ricerca
+    input.focus();
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
