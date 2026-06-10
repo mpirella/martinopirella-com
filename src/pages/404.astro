@@ -6,7 +6,16 @@ import Base from '../layouts/Base.astro';
   <section class="hero-light" style="min-height: 60vh; display: flex; align-items: center;">
     <div class="wrap" style="text-align: center;">
       <h1 style="font-size: clamp(2rem, 4vw, 3rem);">Pagina non trovata</h1>
-      <p style="color: var(--slate); max-width: 560px; margin: var(--space-sm) auto var(--space-lg);">Il sito è stato recentemente riprogettato e alcuni indirizzi sono cambiati. Prova a cercare quello che ti serve dalle sezioni principali.</p>
+      <p style="color: var(--slate); max-width: 560px; margin: var(--space-sm) auto var(--space-lg);">Il sito è stato recentemente riprogettato e alcuni indirizzi sono cambiati. Cosa stavi cercando?</p>
+
+      <form id="search-form" style="max-width: 480px; margin: 0 auto var(--space-lg); display: flex; gap: 0.5rem;">
+        <input type="text" id="search-input" placeholder="Cerca nel sito..." style="flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 0.95rem; background: var(--surface); color: var(--ink);">
+        <button type="submit" class="btn" style="background: var(--accent); color: white; border: none; cursor: pointer;">Cerca</button>
+      </form>
+
+      <div id="search-results" style="max-width: 560px; margin: 0 auto var(--space-lg); text-align: left; display: none;"></div>
+
+      <p style="color: var(--muted); font-size: 0.88rem; margin-bottom: var(--space-sm);">Oppure vai direttamente a:</p>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <a href="/" class="btn" style="background: var(--accent); color: white;">Homepage</a>
         <a href="/articoli/" class="btn" style="background: var(--ink); color: white;">Articoli</a>
@@ -14,4 +23,76 @@ import Base from '../layouts/Base.astro';
       </div>
     </div>
   </section>
+  <script>
+    const pages = [
+      { title: "Chi sono", url: "/chi-sono/", desc: "Martino Pirella — consulenza AI governance" },
+      { title: "Servizi", url: "/servizi/", desc: "AI Governance, consulenza, formazione e conformità normativa" },
+      { title: "Framework DVRA", url: "/dvra/", desc: "Documento di Valutazione del Rischio Algoritmico — 3 livelli, 42 template" },
+      { title: "Articoli", url: "/articoli/", desc: "Riflessioni su AI governance, etica e organizzazioni" },
+      { title: "Collaborazioni", url: "/collaborazioni/", desc: "Partner, enti e progetti" },
+      { title: "Risorse", url: "/risorse/", desc: "Strumenti e materiali" },
+      { title: "Contatti", url: "/contatti/", desc: "Scrivimi" },
+      { title: "Profilo AI", url: "/profilo-ai/", desc: "Scopri il tuo profilo AI in 3 minuti" },
+      { title: "Diagnostica — Studio commercialista", url: "/diagnostica/studio-commercialista/", desc: "Obblighi, rischi e opportunità per lo studio professionale" },
+      { title: "Diagnostica — Studio legale", url: "/diagnostica/studio-legale/", desc: "Check-list diagnostica AI per lo studio legale" },
+      { title: "Diagnostica — Consulenza e formazione", url: "/diagnostica/consulenza-formazione/", desc: "Strumenti diagnostici per società di consulenza" },
+      { title: "Prompt e carbonara", url: "/articoli/prompt-e-carbonara/", desc: "Conversazione su AI, prompt e buon senso" },
+      { title: "Gli Agenti AI non hanno mai paura", url: "/articoli/gli-agenti-ai-non-hanno-mai-paura-ed-e-un-problema/", desc: "AI agentica e il problema dell'assenza di paura" },
+      { title: "L'apprendista senza stregone", url: "/articoli/lapprendista-senza-stregone/", desc: "AI agentica e la rimozione della supervisione" },
+      { title: "Chi è l'esperto di AI?", url: "/articoli/chi-e-lesperto-di-ai/", desc: "Competenze, esperienza e il mito dell'esperto" },
+      { title: "Veltroni e Claude", url: "/articoli/veltroni-e-claude-lillusionista-in-chiesa/", desc: "L'intervista di Veltroni a Claude sul Corriere" },
+      { title: "Il vuoto e il surrogato", url: "/articoli/il-vuoto-e-il-surrogato/", desc: "Beatles, AI e la questione dell'autenticità" },
+      { title: "AI merce o relazione?", url: "/articoli/ai-merce-o-relazione/", desc: "Due modi opposti di intendere l'intelligenza artificiale" },
+      { title: "Di cosa parli quando parli di AI?", url: "/articoli/di-cosa-parli-quando-parli-di-ai/", desc: "Il discorso sull'AI e le sue ambiguità" },
+      { title: "Dire epistemia non basta", url: "/articoli/dire-epistemia-non-basta/", desc: "Il termine epistemia nel dibattito italiano sull'AI" },
+      { title: "Ghe pensi mi — AI agentica e rimozione del pensiero", url: "/articoli/ghe-pensi-mi-ai-agentica-e-rimozione-del-pensiero/", desc: "AI agentica e la promessa di non dover più pensare" },
+      { title: "Human in the loop", url: "/articoli/da-human-in-the-loop-alla-prevalenza-del-pensiero-critico-umano-nella-ai-ma-quale-umano/", desc: "Supervisione umana dei sistemi AI" },
+      { title: "Doxastic loop e AI agentica come rischio sistemico", url: "/articoli/doxastic-loop-generative-engine-optimization-e-intelligenza-artificiale-agentica-come-rischio-sistemico/", desc: "GEO, fonti e rischio sistemico" },
+      { title: "L'intelligenza artificiale non si impara, si diventa", url: "/articoli/lintelligenza-artificiale-non-si-impara-si-diventa/", desc: "Formazione AI e trasformazione" },
+      { title: "Hai dei nuovi dipendenti e non lo sapevi", url: "/articoli/hai-dei-nuovi-dipendenti-e-non-lo-sapevi/", desc: "AI come dipendente invisibile" },
+      { title: "Non tutti i ristoranti sono uguali", url: "/articoli/non-tutti-i-ristoranti-sono-uguali-e-nemmeno-i-modelli-di-ai/", desc: "Modelli AI e le loro differenze" },
+      { title: "Il Surf e l'Arte di usare l'AI", url: "/articoli/il-surf-e-larte-di-usare-lintelligenza-artificiale/", desc: "Jack London, il surf e l'approccio all'AI" },
+      { title: "Moltbook", url: "/articoli/potevo-starmene-zitto-su-moltbook-certo-lho-fatto-no/", desc: "Un social network per agenti AI" },
+      { title: "AI: Numeri, terre rare, sudore", url: "/articoli/ai-numeri-terre-rare-sudore/", desc: "Il costo materiale dell'intelligenza artificiale" },
+      { title: "Fotografare il fiume — UNI 11621-8", url: "/articoli/fotografare-il-fiume-la-norma-uni-11621-8-e-lillusione-di-cristallizzare-le-professioni-dellai/", desc: "Profili professionali AI in Italia" },
+      { title: "Intervista a ChatGPT", url: "/articoli/14-luglio-2025-la-mia-intervista-a-chatgpt-molto-prima-di-walter/", desc: "Conversazione con ChatGPT, luglio 2025" },
+      { title: "Pronto chi parla — Agenti ibridi", url: "/articoli/pronto-chi-parla-identita-opacita-e-responsabilita-nellera-degli-agenti-ibridi/", desc: "Identità e responsabilità nell'era degli agenti" },
+    ];
+
+    const form = document.getElementById('search-form');
+    const input = document.getElementById('search-input');
+    const resultsDiv = document.getElementById('search-results');
+
+    // Auto-cerca da URL path
+    const path = window.location.pathname.replace(/\//g, ' ').replace(/-/g, ' ').trim();
+    if (path) {
+      input.value = path;
+      search(path);
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      search(input.value);
+    });
+
+    function search(query) {
+      const q = query.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      const results = pages.filter(p => {
+        const text = (p.title + ' ' + p.desc + ' ' + p.url).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        return q.split(/\s+/).some(word => word.length > 2 && text.includes(word));
+      }).slice(0, 5);
+
+      if (results.length === 0) {
+        resultsDiv.innerHTML = '<p style="color: var(--muted); font-size: 0.9rem;">Nessun risultato. Prova con altre parole o usa i link qui sotto.</p>';
+      } else {
+        resultsDiv.innerHTML = results.map(r =>
+          '<a href="' + r.url + '" style="display: block; padding: 0.75rem 1rem; margin-bottom: 0.5rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm); text-decoration: none; transition: transform 0.2s;">' +
+          '<strong style="color: var(--ink); font-size: 0.95rem;">' + r.title + '</strong>' +
+          '<br><span style="color: var(--muted); font-size: 0.82rem;">' + r.desc + '</span>' +
+          '</a>'
+        ).join('');
+      }
+      resultsDiv.style.display = 'block';
+    }
+  </script>
 </Base>
