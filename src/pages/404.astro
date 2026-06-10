@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Pagina non trovata" description="La pagina che cercavi non esiste più o è stata spostata.">
+  <section class="hero-light" style="min-height: 60vh; display: flex; align-items: center;">
+    <div class="wrap" style="text-align: center;">
+      <h1 style="font-size: clamp(2rem, 4vw, 3rem);">Pagina non trovata</h1>
+      <p style="color: var(--slate); max-width: 560px; margin: var(--space-sm) auto var(--space-lg);">Il sito è stato recentemente riprogettato e alcuni indirizzi sono cambiati. Prova a cercare quello che ti serve dalle sezioni principali.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="/" class="btn" style="background: var(--accent); color: white;">Homepage</a>
+        <a href="/articoli/" class="btn" style="background: var(--ink); color: white;">Articoli</a>
+        <a href="/servizi/" class="btn" style="background: var(--ink); color: white;">Servizi</a>
+      </div>
+    </div>
+  </section>
+</Base>
