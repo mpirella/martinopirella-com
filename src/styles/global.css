@@ -615,6 +615,30 @@ p + p { margin-top: var(--space-sm); }
 .prose a.btn-outline {
   color: var(--ink);
 }
+.prose sup a {
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 1px;
+}
+.prose sup a:hover {
+  text-decoration: underline;
+}
+.prose .footnotes {
+  list-style: decimal;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.7;
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-md);
+}
+.prose .footnotes li {
+  margin-bottom: var(--space-sm);
+}
+.prose .footnote-back {
+  margin-left: 0.35rem;
+  text-decoration: none;
+}
 
 /* ─── FORM ─── */
 .form-group {
