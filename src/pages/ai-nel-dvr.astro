@@ -2,14 +2,17 @@
 import Base from '../layouts/Base.astro';
 ---
 
-<!-- Per l'anteprima social con immagine propria, aggiungere a <Base> l'attributo image="/images/NOME-FILE.webp" -->
-<Base title="Dal 23 ottobre l'intelligenza artificiale entra nel tuo DVR" description="Il D.Lgs. 179/2026 porta l'uso dell'intelligenza artificiale nella valutazione dei rischi. La sicurezza sul lavoro è un obbligo dell'imprenditore, personale e non delegabile.">
+<Base title="Dal 23 ottobre l'intelligenza artificiale entra nel tuo DVR" description="Il D.Lgs. 179/2026 porta l'uso dell'intelligenza artificiale nella valutazione dei rischi. La sicurezza sul lavoro è un obbligo dell'imprenditore, personale e non delegabile." image="/images/ai-nel-dvr-og.jpg">
   <section class="hero-light">
     <div class="hero-content">
       <p class="eyebrow">Sicurezza sul lavoro · Per gli imprenditori</p>
       <h1>Caro imprenditore, dal 23 ottobre l’intelligenza artificiale entra nel tuo DVR.</h1>
     </div>
   </section>
+
+  <div class="wrap dvr-cover-wrap">
+    <img src="/images/ai-nel-dvr.webp" alt="Un imprenditore pensieroso alla scrivania pesa i rischi su antiche bilance, tra faldoni e fogli di valutazione dei rischi" class="dvr-cover" width="1536" height="1024" />
+  </div>
 
   <section class="section">
     <div class="wrap content-narrow prose">
@@ -35,9 +38,24 @@ import Base from '../layouts/Base.astro';
 
   <style>
     .hero-light { padding-bottom: var(--space-md); }
-    .hero-light + .section { padding-top: var(--space-lg); }
+    .dvr-cover-wrap {
+      max-width: calc(var(--max-width) + 5rem);
+      padding: 0 2.5rem;
+    }
+    .dvr-cover-wrap + .section { padding-top: var(--space-lg); }
+    .dvr-cover {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 620px;
+      object-fit: cover;
+      object-position: center 5%;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+    }
     @media (max-width: 768px) {
       .hero-light { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .dvr-cover-wrap { padding: 0 1.5rem; }
     }
   </style>
 </Base>
