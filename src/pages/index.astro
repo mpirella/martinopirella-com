@@ -38,6 +38,104 @@ const sorted = articles
     </div>
   </section>
 
+  <!-- ════════ NOVITÀ: AI NEL DVR ════════ -->
+  <section class="dvr-banner">
+    <div class="wrap dvr-grid">
+      <div>
+        <p class="dvr-eyebrow">Novità · Sicurezza sul lavoro</p>
+        <h2 class="dvr-title">Caro imprenditore, dal 23 ottobre l’intelligenza artificiale entra nel tuo <em>DVR.</em></h2>
+        <p class="dvr-text">Il D.Lgs. 179/2026 la porta dentro la valutazione dei rischi: un obbligo tuo, personale e non delegabile. E vale anche se in azienda l’IA “non l’abbiamo introdotta”.</p>
+      </div>
+      <a href="/ai-nel-dvr/" class="dvr-btn">Cosa cambia per la tua azienda →</a>
+    </div>
+  </section>
+
+  <style>
+    .dvr-banner {
+      background: var(--accent);
+      color: var(--paper);
+      padding: var(--space-xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .dvr-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    .dvr-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .dvr-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--paper);
+      margin-bottom: var(--space-sm);
+    }
+    .dvr-title {
+      color: var(--paper);
+      font-size: clamp(1.9rem, 4.2vw, 3.1rem);
+      line-height: 1.08;
+      max-width: 22ch;
+      margin-bottom: var(--space-sm);
+    }
+    .dvr-title em {
+      font-style: italic;
+      color: var(--ink);
+    }
+    .dvr-text {
+      color: var(--paper);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      max-width: 620px;
+    }
+    .dvr-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: var(--paper);
+      color: var(--ink);
+      border: 1px solid var(--paper);
+      padding: 1rem 1.9rem;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .dvr-btn:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--paper);
+    }
+    @media (max-width: 768px) {
+      .dvr-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+      }
+      .dvr-btn {
+        justify-self: start;
+        white-space: normal;
+      }
+    }
+  </style>
+
   <!-- ════════ LIBRO ════════ -->
   <section class="section section-warm libro-banner">
     <div class="wrap libro-grid">
