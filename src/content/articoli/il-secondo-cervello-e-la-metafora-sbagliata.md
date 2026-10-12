@@ -1,5 +1,5 @@
 ---
-title: "Il secondo cervello è la metafora sbagliata"
+title: "Il “secondo cervello” è la metafora sbagliata"
 date: 2026-10-12
 slug: "il-secondo-cervello-e-la-metafora-sbagliata"
 excerpt: "L'intelligenza artificiale, l'industria della produttività e il pensiero che non sappiamo più dove mettere. Prima di comprare un secondo cervello, conviene capire che cosa sta accadendo al primo."
